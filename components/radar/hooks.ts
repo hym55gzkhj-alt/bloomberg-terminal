@@ -47,7 +47,11 @@ export function useScan() {
   return useQuery({
     queryKey: keys.scan,
     queryFn: () => getJson<ScanResult>("/api/radar/scan"),
-    refetchInterval: 5 * 60_000,
+    // while rate-limited Finnhub data is still loading in the background, refresh sooner
+    refetchInterval: (q) =>
+      q.state.data?.results.some((r) => r.warnings.some((w) => w.includes("nachgeladen")))
+        ? 60_000
+        : 5 * 60_000,
     staleTime: 4 * 60_000,
     retry: 1,
   });

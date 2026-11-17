@@ -1,3 +1,4 @@
+import { isValidIsin } from "./isin";
 import type { UniverseEntry } from "./types";
 
 /**
@@ -6,11 +7,12 @@ import type { UniverseEntry } from "./types";
  * Extend it by adding entries here, or without code changes via the
  * RADAR_EXTRA_UNIVERSE environment variable (JSON array of UniverseEntry objects), e.g.
  * RADAR_EXTRA_UNIVERSE='[{"ticker":"CRM","name":"Salesforce","yahoo":"CRM","finnhub":"CRM",
- *   "sector":"Software","region":"US","benchmark":"SPY","sectorEtf":"IGV"}]'
+ *   "sector":"Software","region":"US","benchmark":"SPY","sectorEtf":"IGV","isin":"US79466L3024"}]'
  */
 export const BASE_UNIVERSE: UniverseEntry[] = [
   {
     ticker: "NVDA",
+    isin: "US67066G1040",
     name: "NVIDIA",
     yahoo: "NVDA",
     finnhub: "NVDA",
@@ -21,6 +23,7 @@ export const BASE_UNIVERSE: UniverseEntry[] = [
   },
   {
     ticker: "MSFT",
+    isin: "US5949181045",
     name: "Microsoft",
     yahoo: "MSFT",
     finnhub: "MSFT",
@@ -31,6 +34,7 @@ export const BASE_UNIVERSE: UniverseEntry[] = [
   },
   {
     ticker: "AAPL",
+    isin: "US0378331005",
     name: "Apple",
     yahoo: "AAPL",
     finnhub: "AAPL",
@@ -41,6 +45,7 @@ export const BASE_UNIVERSE: UniverseEntry[] = [
   },
   {
     ticker: "AMZN",
+    isin: "US0231351067",
     name: "Amazon",
     yahoo: "AMZN",
     finnhub: "AMZN",
@@ -51,6 +56,7 @@ export const BASE_UNIVERSE: UniverseEntry[] = [
   },
   {
     ticker: "GOOGL",
+    isin: "US02079K3059",
     name: "Alphabet",
     yahoo: "GOOGL",
     finnhub: "GOOGL",
@@ -61,6 +67,7 @@ export const BASE_UNIVERSE: UniverseEntry[] = [
   },
   {
     ticker: "META",
+    isin: "US30303M1027",
     name: "Meta Platforms",
     yahoo: "META",
     finnhub: "META",
@@ -71,6 +78,7 @@ export const BASE_UNIVERSE: UniverseEntry[] = [
   },
   {
     ticker: "TSLA",
+    isin: "US88160R1014",
     name: "Tesla",
     yahoo: "TSLA",
     finnhub: "TSLA",
@@ -81,6 +89,7 @@ export const BASE_UNIVERSE: UniverseEntry[] = [
   },
   {
     ticker: "AMD",
+    isin: "US0079031078",
     name: "Advanced Micro Devices",
     yahoo: "AMD",
     finnhub: "AMD",
@@ -91,6 +100,7 @@ export const BASE_UNIVERSE: UniverseEntry[] = [
   },
   {
     ticker: "AVGO",
+    isin: "US11135F1012",
     name: "Broadcom",
     yahoo: "AVGO",
     finnhub: "AVGO",
@@ -101,6 +111,7 @@ export const BASE_UNIVERSE: UniverseEntry[] = [
   },
   {
     ticker: "PLTR",
+    isin: "US69608A1088",
     name: "Palantir",
     yahoo: "PLTR",
     finnhub: "PLTR",
@@ -111,6 +122,7 @@ export const BASE_UNIVERSE: UniverseEntry[] = [
   },
   {
     ticker: "NFLX",
+    isin: "US64110L1061",
     name: "Netflix",
     yahoo: "NFLX",
     finnhub: "NFLX",
@@ -121,6 +133,7 @@ export const BASE_UNIVERSE: UniverseEntry[] = [
   },
   {
     ticker: "QCOM",
+    isin: "US7475251036",
     name: "Qualcomm",
     yahoo: "QCOM",
     finnhub: "QCOM",
@@ -131,6 +144,7 @@ export const BASE_UNIVERSE: UniverseEntry[] = [
   },
   {
     ticker: "ORCL",
+    isin: "US68389X1054",
     name: "Oracle",
     yahoo: "ORCL",
     finnhub: "ORCL",
@@ -141,6 +155,7 @@ export const BASE_UNIVERSE: UniverseEntry[] = [
   },
   {
     ticker: "ASML",
+    isin: "NL0010273215",
     name: "ASML Holding",
     yahoo: "ASML.AS",
     finnhub: "ASML",
@@ -151,6 +166,7 @@ export const BASE_UNIVERSE: UniverseEntry[] = [
   },
   {
     ticker: "SAP",
+    isin: "DE0007164600",
     name: "SAP",
     yahoo: "SAP.DE",
     finnhub: "SAP",
@@ -161,6 +177,7 @@ export const BASE_UNIVERSE: UniverseEntry[] = [
   },
   {
     ticker: "SIE",
+    isin: "DE0007236101",
     name: "Siemens",
     yahoo: "SIE.DE",
     finnhub: null,
@@ -171,6 +188,7 @@ export const BASE_UNIVERSE: UniverseEntry[] = [
   },
   {
     ticker: "BRK.B",
+    isin: "US0846707026",
     name: "Berkshire Hathaway",
     yahoo: "BRK-B",
     finnhub: "BRK.B",
@@ -181,6 +199,7 @@ export const BASE_UNIVERSE: UniverseEntry[] = [
   },
   {
     ticker: "JPM",
+    isin: "US46625H1005",
     name: "JPMorgan Chase",
     yahoo: "JPM",
     finnhub: "JPM",
@@ -191,6 +210,7 @@ export const BASE_UNIVERSE: UniverseEntry[] = [
   },
   {
     ticker: "LLY",
+    isin: "US5324571083",
     name: "Eli Lilly",
     yahoo: "LLY",
     finnhub: "LLY",
@@ -201,6 +221,7 @@ export const BASE_UNIVERSE: UniverseEntry[] = [
   },
   {
     ticker: "NOVO",
+    isin: "DK0062498333",
     name: "Novo Nordisk",
     yahoo: "NOVO-B.CO",
     finnhub: "NVO",
@@ -228,7 +249,12 @@ function parseExtra(): UniverseEntry[] {
           typeof e.benchmark === "string" &&
           typeof e.sectorEtf === "string"
       )
-      .map((e) => ({ ...e, finnhub: e.finnhub ?? null, region: e.region ?? "US" }));
+      .map((e) => ({
+        ...e,
+        finnhub: e.finnhub ?? null,
+        region: e.region ?? "US",
+        isin: typeof e.isin === "string" && isValidIsin(e.isin) ? e.isin : null,
+      }));
   } catch {
     console.error("RADAR_EXTRA_UNIVERSE is not valid JSON – ignored");
     return [];

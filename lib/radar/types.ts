@@ -8,6 +8,8 @@ export type Region = "US" | "DE" | "NL" | "DK";
 export interface UniverseEntry {
   /** Internal id / display ticker */
   ticker: string;
+  /** ISIN (International Securities Identification Number), e.g. for searching at a broker */
+  isin?: string | null;
   name: string;
   /** Symbol used for price + volume data on Yahoo Finance (primary listing). */
   yahoo: string;

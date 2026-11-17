@@ -9,8 +9,8 @@ import type {
   TradeSetup,
 } from "@/lib/radar/types";
 import { cn } from "@/lib/utils";
-import { AlertTriangle, Loader2, RefreshCw } from "lucide-react";
-import type { ReactNode } from "react";
+import { AlertTriangle, Check, Copy, Loader2, RefreshCw } from "lucide-react";
+import { type ReactNode, useState } from "react";
 import {
   CATEGORY_STYLE,
   fmtAge,
@@ -21,6 +21,60 @@ import {
   scoreColor,
   signColor,
 } from "./lib/format";
+
+/**
+ * ISIN with one-tap copy (e.g. to search the stock at a broker such as Trade Republic).
+ * Falls back to selecting the text if the clipboard API is not available.
+ */
+export function CopyIsin({ isin, large }: { isin?: string | null; large?: boolean }) {
+  const [copied, setCopied] = useState(false);
+  if (!isin) {
+    return <span className="text-[9px] text-neutral-600">ISIN nicht hinterlegt</span>;
+  }
+  const copy = async (e: React.MouseEvent) => {
+    e.stopPropagation();
+    try {
+      await navigator.clipboard.writeText(isin);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
+    } catch {
+      const sel = window.getSelection();
+      const node = (e.currentTarget as HTMLElement).querySelector("[data-isin]");
+      if (sel && node) {
+        const range = document.createRange();
+        range.selectNodeContents(node);
+        sel.removeAllRanges();
+        sel.addRange(range);
+      }
+    }
+  };
+  return (
+    <button
+      type="button"
+      onClick={copy}
+      onKeyDown={(e) => e.stopPropagation()}
+      title="ISIN kopieren – z. B. in der Trade-Republic-Suche einfügen"
+      className={cn(
+        "inline-flex items-center gap-1 border font-mono tabular-nums",
+        large ? "px-2 py-1 text-xs" : "px-1 text-[9px] leading-4",
+        copied
+          ? "border-emerald-600 text-emerald-300"
+          : "border-neutral-700 text-neutral-300 hover:border-amber-500 hover:text-amber-200"
+      )}
+    >
+      <span className="text-neutral-500">ISIN</span>
+      <span data-isin className="select-all">
+        {isin}
+      </span>
+      {copied ? (
+        <Check className={large ? "h-3.5 w-3.5" : "h-2.5 w-2.5"} />
+      ) : (
+        <Copy className={large ? "h-3.5 w-3.5" : "h-2.5 w-2.5"} />
+      )}
+      {copied && <span>kopiert</span>}
+    </button>
+  );
+}
 
 export function Panel({
   title,
@@ -315,7 +369,9 @@ function cell(r: StockAnalysis, c: Column): ReactNode {
         <div className="min-w-[140px]">
           <span className="font-bold text-amber-300">{r.entry.ticker}</span>{" "}
           <span className="text-neutral-300">{r.entry.name}</span>
-          <div className="text-[9px] text-neutral-500">{q.exchange}</div>
+          <div className="flex flex-wrap items-center gap-1 text-[9px] text-neutral-500">
+            {q.exchange} <CopyIsin isin={r.entry.isin} />
+          </div>
         </div>
       );
     case "price":

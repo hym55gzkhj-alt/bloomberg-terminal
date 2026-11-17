@@ -74,11 +74,54 @@ export function dedupeNews(items: NewsItem[]): NewsItem[] {
   return out;
 }
 
+export const FINNHUB_PENDING =
+  "Finnhub-Daten werden nachgeladen (Limit 60 Abfragen/Min.) – beim nächsten Scan verfügbar";
+
+const g = globalThis as unknown as { __radarPending?: Set<Promise<unknown>> };
+if (!g.__radarPending) g.__radarPending = new Set();
+const pending = g.__radarPending;
+
+/**
+ * Waits for a (slow, rate-limited) provider call only until `deadline`. If it is not done
+ * by then, the caller continues without it (component marked as "wird nachgeladen") while
+ * the request keeps running in the background and fills the cache for the next scan.
+ */
+export function withBudget<T>(p: Promise<T>, deadline: number | undefined): Promise<T> {
+  p.catch(() => undefined);
+  if (!deadline) return p;
+  const ms = Math.max(1500, deadline - Date.now());
+  return new Promise<T>((resolve, reject) => {
+    const timer = setTimeout(() => {
+      pending.add(p);
+      p.finally(() => pending.delete(p)).catch(() => undefined);
+      reject(new Error(FINNHUB_PENDING));
+    }, ms);
+    p.then(
+      (v) => {
+        clearTimeout(timer);
+        resolve(v);
+      },
+      (e) => {
+        clearTimeout(timer);
+        reject(e);
+      }
+    );
+  });
+}
+
+/** Lets a route keep background provider calls alive after responding (next/server `after`). */
+export async function drainPending(): Promise<void> {
+  await Promise.allSettled([...pending]);
+}
+
 export async function collectNews(
-  entry: UniverseEntry
+  entry: UniverseEntry,
+  opts: { finnhub?: boolean; deadline?: number } = {}
 ): Promise<{ news: NewsItem[] | null; reason?: string; sources: string[] }> {
   const tasks: Promise<NewsItem[]>[] = [getYahooNews(entry.yahoo, 15)];
-  if (finnhubConfigured() && entry.finnhub) tasks.push(getCompanyNews(entry.finnhub, 14));
+  if (opts.finnhub !== false && finnhubConfigured() && entry.finnhub) {
+    tasks.push(withBudget(getCompanyNews(entry.finnhub, 14), opts.deadline));
+  }
   const settled = await Promise.allSettled(tasks);
   const ok = settled.filter(
     (s): s is PromiseFulfilledResult<NewsItem[]> => s.status === "fulfilled"
@@ -109,8 +152,15 @@ export async function getSignalHistory(ticker: string): Promise<SignalHistoryEnt
 
 export async function analyzeEntry(
   entry: UniverseEntry,
-  opts: { weights?: Weights; recordHistory?: boolean; realtimeQuote?: boolean } = {}
+  opts: {
+    weights?: Weights;
+    recordHistory?: boolean;
+    realtimeQuote?: boolean;
+    /** unix ms after which slow Finnhub calls are no longer awaited */
+    deadline?: number;
+  } = {}
 ): Promise<AnalysisBundle> {
+  const fhb = <T>(p: Promise<T>) => withBudget(p, opts.deadline);
   const weights = opts.weights ?? serverWeights();
   const fh = finnhubConfigured() && entry.finnhub;
   const noFh = entry.finnhub
@@ -123,13 +173,13 @@ export async function analyzeEntry(
       getHistory(entry.benchmark, "2y"),
       getHistory(entry.sectorEtf, "2y"),
       getHistory("SPY", "2y"),
-      collectNews(entry),
-      fh ? getFundamentals(entry.finnhub as string) : Promise.reject(new Error(noFh)),
-      fh ? getEarningsSurprises(entry.finnhub as string) : Promise.reject(new Error(noFh)),
-      fh ? getRecommendations(entry.finnhub as string) : Promise.reject(new Error(noFh)),
-      fh ? getUpcomingEarnings(entry.finnhub as string) : Promise.reject(new Error(noFh)),
+      collectNews(entry, { deadline: opts.deadline }),
+      fh ? fhb(getFundamentals(entry.finnhub as string)) : Promise.reject(new Error(noFh)),
+      fh ? fhb(getEarningsSurprises(entry.finnhub as string)) : Promise.reject(new Error(noFh)),
+      fh ? fhb(getRecommendations(entry.finnhub as string)) : Promise.reject(new Error(noFh)),
+      fh ? fhb(getUpcomingEarnings(entry.finnhub as string)) : Promise.reject(new Error(noFh)),
       fh && opts.realtimeQuote && entry.region === "US"
-        ? getFinnhubQuote(entry.finnhub as string)
+        ? fhb(getFinnhubQuote(entry.finnhub as string))
         : Promise.resolve(null),
     ]);
 

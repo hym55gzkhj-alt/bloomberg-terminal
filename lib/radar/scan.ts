@@ -1,4 +1,4 @@
-import { analyzeEntry, collectNews, getSignalHistory } from "./analyze";
+import { FINNHUB_PENDING, analyzeEntry, collectNews, getSignalHistory } from "./analyze";
 import { runBacktest } from "./backtest";
 import { cacheBackend, cached } from "./cache";
 import { serverWeights } from "./config";
@@ -32,11 +32,15 @@ export async function providerStatus(): Promise<ProviderStatus[]> {
 
 /** Full scan of the universe. Cached for 4 minutes (data underneath has its own TTLs). */
 export async function scanUniverse(): Promise<ScanResult> {
-  const res = await cached("scan:v1", 240, async () => {
+  // A scan that still waits for rate-limited Finnhub data is cached only briefly.
+  const ttl = (r: ScanResult) =>
+    r.results.some((a) => a.warnings.some((w) => w.includes(FINNHUB_PENDING))) ? 45 : 240;
+  const res = await cached("scan:v1", ttl, async () => {
+    const deadline = Date.now() + 12_000;
     const universe = getUniverse();
     const errors: ScanResult["errors"] = [];
     const settled = await Promise.allSettled(
-      universe.map((e) => analyzeEntry(e, { recordHistory: true }))
+      universe.map((e) => analyzeEntry(e, { recordHistory: true, deadline }))
     );
     const results = [];
     for (let k = 0; k < settled.length; k++) {
@@ -63,7 +67,11 @@ export async function scanUniverse(): Promise<ScanResult> {
 
 export async function stockDetail(entry: UniverseEntry): Promise<DetailPayload> {
   const [bundle, signalHistory, bt, btShort] = await Promise.all([
-    analyzeEntry(entry, { recordHistory: false, realtimeQuote: true }),
+    analyzeEntry(entry, {
+      recordHistory: false,
+      realtimeQuote: true,
+      deadline: Date.now() + 15_000,
+    }),
     getSignalHistory(entry.ticker),
     runBacktest({ tickers: [entry.ticker], years: 5, direction: "long" }).catch(() => null),
     runBacktest({ tickers: [entry.ticker], years: 5, direction: "short" }).catch(() => null),
@@ -171,7 +179,7 @@ export async function newsFeed(): Promise<{
     const seen = new Set<string>();
     await Promise.all(
       universe.map(async (e) => {
-        const r = await collectNews(e);
+        const r = await collectNews(e, { finnhub: false });
         if (!r.news) {
           errors.push({ ticker: e.ticker, message: r.reason ?? "keine Nachrichten" });
           return;
@@ -184,8 +192,9 @@ export async function newsFeed(): Promise<{
       })
     );
     items.sort((a, b) => b.publishedAt - a.publishedAt);
+    // Finnhub company news is used per stock (detail/scan); the feed uses Yahoo only to
+    // keep the free Finnhub quota (60 calls/min) for analyst and fundamental data.
     const sources = ["Yahoo Finance News"];
-    if (finnhubConfigured()) sources.push("Finnhub Company News");
     return { items: items.slice(0, 400), errors, sources, generatedAt: Date.now() };
   });
   return res.data;

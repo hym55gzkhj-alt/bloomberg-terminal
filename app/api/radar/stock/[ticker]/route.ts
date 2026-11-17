@@ -1,9 +1,12 @@
+import { drainPending } from "@/lib/radar/analyze";
 import { jsonError, jsonOk } from "@/lib/radar/http-response";
 import { getHistory } from "@/lib/radar/providers/yahoo";
 import { stockDetail } from "@/lib/radar/scan";
 import type { UniverseEntry } from "@/lib/radar/types";
 import { findEntry } from "@/lib/radar/universe";
 import type { NextRequest } from "next/server";
+
+import { after } from "next/server";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -13,6 +16,8 @@ const MIN_AVG_DOLLAR_VOLUME = 20_000_000; // liquidity guard for ad-hoc tickers
 const MIN_PRICE = 5; // no penny stocks
 
 export async function GET(_req: NextRequest, { params }: { params: Promise<{ ticker: string }> }) {
+  // keep rate-limited background requests alive after the response (fills the cache)
+  after(drainPending);
   const { ticker: raw } = await params;
   const ticker = decodeURIComponent(raw).toUpperCase().trim();
   if (!/^[A-Z0-9.^=-]{1,15}$/.test(ticker))

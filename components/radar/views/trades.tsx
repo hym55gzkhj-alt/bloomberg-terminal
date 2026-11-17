@@ -6,7 +6,7 @@ import { useMemo } from "react";
 import { useWeightedResults } from "../hooks";
 import { fmtNum, fmtPct, signColor } from "../lib/format";
 import { RuleTrackRecord } from "../trade-panel";
-import { CategoryBadge, ErrorBox, Loading, Panel, ScoreBar, TradeBadge } from "../ui";
+import { CategoryBadge, CopyIsin, ErrorBox, Loading, Panel, ScoreBar, TradeBadge } from "../ui";
 import { ScanMeta, useOpenAnalysis } from "./common";
 
 function TradeTable({ rows, onSelect }: { rows: StockAnalysis[]; onSelect: (t: string) => void }) {
@@ -52,6 +52,9 @@ function TradeTable({ rows, onSelect }: { rows: StockAnalysis[]; onSelect: (t: s
                 <td className="px-1.5 py-1">
                   <span className="font-bold text-amber-300">{r.entry.ticker}</span>{" "}
                   <span className="text-neutral-300">{r.entry.name}</span>
+                  <div>
+                    <CopyIsin isin={r.entry.isin} />
+                  </div>
                 </td>
                 <td className="px-1.5">
                   <div className="flex items-center gap-1">

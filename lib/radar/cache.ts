@@ -91,7 +91,7 @@ export interface Cached<T> {
  */
 export async function cached<T>(
   key: string,
-  ttlSec: number,
+  ttlSec: number | ((value: T) => number),
   fetcher: () => Promise<T>
 ): Promise<Cached<T>> {
   const hit = await readEnvelope<T>(key);
@@ -104,7 +104,8 @@ export async function cached<T>(
     try {
       const v = await fetcher();
       const now = Date.now();
-      await writeEnvelope(key, { v, fetchedAt: now, expiresAt: now + ttlSec * 1000 }, ttlSec);
+      const ttl = typeof ttlSec === "function" ? ttlSec(v) : ttlSec;
+      await writeEnvelope(key, { v, fetchedAt: now, expiresAt: now + ttl * 1000 }, ttl);
       return { data: v, fetchedAt: now, cacheHit: false };
     } finally {
       inflight.delete(key);
