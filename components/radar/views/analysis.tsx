@@ -25,6 +25,7 @@ import {
 import { reweight, useDetail } from "../hooks";
 import { fmtNum, fmtPct, fmtTime, fmtVol, signColor } from "../lib/format";
 import { selectedTickerAtom, watchlistAtom, weightsAtom } from "../state";
+import { TradePanel } from "../trade-panel";
 import {
   CategoryBadge,
   ComponentBars,
@@ -166,6 +167,8 @@ function Detail({ data }: { data: DetailPayload }) {
         </div>
       </div>
 
+      <TradePanel analysis={a} currency={q.currency} />
+
       <div className="grid gap-2 xl:grid-cols-[1fr_420px]">
         <div className="space-y-2">
           <Panel
@@ -227,6 +230,30 @@ function Detail({ data }: { data: DetailPayload }) {
                     name="SMA200"
                     isAnimationActive={false}
                   />
+                  {a.trade.bias !== "NEUTRAL" &&
+                    (
+                      [
+                        [a.trade.stop, "#ef4444", "Stop"],
+                        [a.trade.target1, "#10b981", "Ziel 1"],
+                        [a.trade.target2, "#10b981", "Ziel 2"],
+                      ] as [number | null, string, string][]
+                    ).map(([y, color, label]) =>
+                      y != null ? (
+                        <ReferenceLine
+                          key={label}
+                          y={y}
+                          stroke={color}
+                          strokeDasharray="4 3"
+                          label={{
+                            value: label,
+                            fill: color,
+                            fontSize: 9,
+                            position: "insideRight",
+                          }}
+                          ifOverflow="extendDomain"
+                        />
+                      ) : null
+                    )}
                   {markers.map((m) => {
                     const pt = chart.find((c) => c.date === m.date);
                     return pt ? (
@@ -533,7 +560,7 @@ function Detail({ data }: { data: DetailPayload }) {
             )}
           </Panel>
 
-          <Panel title="Historische Signale (Backtest, 5 J., technisch)">
+          <Panel title="Historische Long-/Short-Setups (Backtest, 5 J., technisch)">
             {data.historicalSignals.length ? (
               <div className="max-h-64 overflow-y-auto">
                 <table className="w-full text-[11px]">
@@ -544,18 +571,39 @@ function Detail({ data }: { data: DetailPayload }) {
                       <th className="text-right font-normal">5T</th>
                       <th className="text-right font-normal">20T</th>
                       <th className="text-right font-normal">60T</th>
+                      <th className="text-right font-normal">Trade</th>
                     </tr>
                   </thead>
                   <tbody>
                     {data.historicalSignals.slice(0, 40).map((s) => (
-                      <tr key={s.date} className="border-t border-neutral-900 tabular-nums">
+                      <tr
+                        key={`${s.direction}-${s.date}`}
+                        className="border-t border-neutral-900 tabular-nums"
+                      >
                         <td>{s.date}</td>
-                        <td className="text-[9px]">{CATEGORY_LABELS[s.category]}</td>
+                        <td className="text-[9px]">
+                          <span
+                            className={
+                              s.direction === "short" ? "text-red-400" : "text-emerald-400"
+                            }
+                          >
+                            {s.direction === "short" ? "▼ SHORT" : "▲ LONG"}
+                          </span>{" "}
+                          {CATEGORY_LABELS[s.category]}
+                        </td>
                         {[5, 20, 60].map((h) => (
                           <td key={h} className={cn("text-right", signColor(s.returns[h]))}>
                             {s.returns[h] == null ? "offen" : fmtPct(s.returns[h], 1)}
                           </td>
                         ))}
+                        <td
+                          className={cn("text-right", signColor(s.trade?.r))}
+                          title={s.trade ? `${s.trade.outcome} nach ${s.trade.days} T` : ""}
+                        >
+                          {s.trade
+                            ? `${s.trade.outcome} ${s.trade.r >= 0 ? "+" : ""}${fmtNum(s.trade.r, 1)}R`
+                            : "–"}
+                        </td>
                       </tr>
                     ))}
                   </tbody>

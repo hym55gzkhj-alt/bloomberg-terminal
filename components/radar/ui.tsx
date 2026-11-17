@@ -1,7 +1,13 @@
 "use client";
 
 import { CATEGORY_LABELS, COMPONENT_LABELS } from "@/lib/radar/config";
-import type { ComponentResult, QuoteInfo, SignalCategory, StockAnalysis } from "@/lib/radar/types";
+import type {
+  ComponentResult,
+  QuoteInfo,
+  SignalCategory,
+  StockAnalysis,
+  TradeSetup,
+} from "@/lib/radar/types";
 import { cn } from "@/lib/utils";
 import { AlertTriangle, Loader2, RefreshCw } from "lucide-react";
 import type { ReactNode } from "react";
@@ -212,7 +218,8 @@ export type Column =
   | "ret20"
   | "ext"
   | "coverage"
-  | "sector";
+  | "sector"
+  | "trade";
 
 export function StockTable({
   rows,
@@ -242,6 +249,7 @@ export function StockTable({
     ret20: "20T %",
     ext: "Überdehnung",
     coverage: "Daten",
+    trade: "Trade",
     sector: "Sektor",
   };
   return (
@@ -399,5 +407,38 @@ function cell(r: StockAnalysis, c: Column): ReactNode {
       );
     case "sector":
       return <span className="text-neutral-400">{r.entry.sector}</span>;
+    case "trade":
+      return <TradeBadge trade={r.trade} />;
   }
+}
+
+export function TradeBadge({ trade, large }: { trade: TradeSetup; large?: boolean }) {
+  const style =
+    trade.bias === "LONG"
+      ? "border-emerald-500 text-emerald-300"
+      : trade.bias === "SHORT"
+        ? "border-red-500 text-red-300"
+        : trade.entry != null
+          ? "border-amber-600 text-amber-300"
+          : "border-neutral-700 text-neutral-500";
+  const label =
+    trade.bias === "LONG"
+      ? "▲ LONG"
+      : trade.bias === "SHORT"
+        ? "▼ SHORT"
+        : trade.entry != null
+          ? "ABWARTEN"
+          : "KEIN TRADE";
+  return (
+    <span
+      className={cn(
+        "inline-block whitespace-nowrap border px-1.5 font-bold",
+        large ? "text-sm leading-7" : "text-[10px] leading-5",
+        style
+      )}
+      title={`${trade.action} · Überzeugung ${trade.convictionLabel}`}
+    >
+      {label}
+    </span>
+  );
 }

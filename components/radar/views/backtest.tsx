@@ -1,7 +1,13 @@
 "use client";
 
 import { CATEGORY_LABELS } from "@/lib/radar/config";
-import type { BacktestParams, HorizonStats, SignalCategory } from "@/lib/radar/types";
+import { TRADE_RULES } from "@/lib/radar/trade";
+import type {
+  BacktestParams,
+  BacktestResult,
+  HorizonStats,
+  SignalCategory,
+} from "@/lib/radar/types";
 import { cn } from "@/lib/utils";
 import { useAtom } from "jotai";
 import { useMemo, useState } from "react";
@@ -74,7 +80,20 @@ export function BacktestView() {
           }}
         >
           <label className="flex flex-col gap-0.5">
-            <span className="text-neutral-500">Signal ab Kategorie</span>
+            <span className="text-neutral-500">Richtung</span>
+            <select
+              className={sel}
+              value={draft.direction ?? "long"}
+              onChange={(e) =>
+                setDraft({ ...draft, direction: e.target.value as BacktestParams["direction"] })
+              }
+            >
+              <option value="long">▲ LONG-Setups</option>
+              <option value="short">▼ SHORT-Setups</option>
+            </select>
+          </label>
+          <label className="flex flex-col gap-0.5">
+            <span className="text-neutral-500">Long ab Kategorie</span>
             <select
               className={sel}
               value={draft.minCategory}
@@ -147,17 +166,24 @@ export function BacktestView() {
       {error && <ErrorBox error={error} onRetry={() => refetch()} />}
       {data && (
         <>
+          <TradeStatsPanel data={data} />
           <div className="grid gap-2 xl:grid-cols-[1fr_380px]">
             <Panel
               title={`Ergebnisse ${data.period.from} – ${data.period.to} · ${data.signals.length} Signale · ${data.universe.length} Titel`}
               right={<span>berechnet {fmtTime(data.generatedAt)}</span>}
             >
               <StatsTable title="Alle Signale" rows={data.stats.ALL} />
-              {(["EARLY_SIGNAL", "BUILDING_MOMENTUM", "STRONG_MOMENTUM"] as SignalCategory[]).map(
-                (c) =>
-                  data.stats[c]?.some((r) => r.count > 0) ? (
-                    <StatsTable key={c} title={CATEGORY_LABELS[c]} rows={data.stats[c]} />
-                  ) : null
+              {(
+                [
+                  "EARLY_SIGNAL",
+                  "BUILDING_MOMENTUM",
+                  "STRONG_MOMENTUM",
+                  "NEGATIVE",
+                ] as SignalCategory[]
+              ).map((c) =>
+                data.stats[c]?.some((r) => r.count > 0) ? (
+                  <StatsTable key={c} title={CATEGORY_LABELS[c]} rows={data.stats[c]} />
+                ) : null
               )}
               <p className="mt-2 text-[10px] text-neutral-500">
                 Netto-Renditen nach Kosten. „Baseline“ = Ø-Rendite bei Einstieg an jedem beliebigen
@@ -260,6 +286,8 @@ export function BacktestView() {
                     ))}
                     <th className="text-right font-normal">vs. Bench {horizon}T</th>
                     <th className="text-right font-normal">Max. Verlust</th>
+                    <th className="font-normal">Trade (Stop/Ziel)</th>
+                    <th className="text-right font-normal">Ergebnis</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -297,6 +325,25 @@ export function BacktestView() {
                           {ex == null ? "–" : fmtPct(ex, 1)}
                         </td>
                         <td className="text-right text-red-400">{fmtPct(s.maxAdverse, 1)}</td>
+                        <td
+                          className={cn(
+                            "pl-2 text-[10px]",
+                            s.trade?.outcome === "Ziel" && "text-emerald-400",
+                            s.trade?.outcome === "Stop" && "text-red-400",
+                            s.trade?.outcome === "Zeit" && "text-neutral-300",
+                            s.trade?.outcome === "offen" && "text-neutral-500"
+                          )}
+                          title={
+                            s.trade
+                              ? `Stop ${fmtNum(s.trade.stop)} · Ziel 1 ${fmtNum(s.trade.target1)}${s.trade.target1Hit ? " (erreicht)" : ""} · Ziel 2 ${fmtNum(s.trade.target2)} · Ausstieg ${s.trade.exitDate} @ ${fmtNum(s.trade.exitPrice)}`
+                              : ""
+                          }
+                        >
+                          {s.trade ? `${s.trade.outcome} nach ${s.trade.days} T` : "–"}
+                        </td>
+                        <td className={cn("text-right", signColor(s.trade?.r))}>
+                          {s.trade ? `${s.trade.r >= 0 ? "+" : ""}${fmtNum(s.trade.r, 2)}R` : "–"}
+                        </td>
                       </tr>
                     );
                   })}
@@ -384,5 +431,71 @@ function StatsTable({ title, rows }: { title: string; rows: HorizonStats[] }) {
         </tbody>
       </table>
     </div>
+  );
+}
+
+function TradeStatsPanel({ data }: { data: BacktestResult }) {
+  const t = data.tradeStats;
+  const short = data.params.direction === "short";
+  const cell = (label: string, value: string, tone?: string, sub?: string) => (
+    <div className="border border-neutral-800 px-2 py-1">
+      <div className="text-[9px] uppercase text-neutral-500">{label}</div>
+      <div className={cn("text-base font-bold tabular-nums", tone)}>{value}</div>
+      {sub && <div className="text-[9px] text-neutral-500">{sub}</div>}
+    </div>
+  );
+  return (
+    <Panel
+      title={`Trade-Simulation ${short ? "▼ SHORT" : "▲ LONG"} – Stop ${TRADE_RULES.stopAtr}× ATR · Ziel ${TRADE_RULES.target2R}R · max. ${TRADE_RULES.maxDays} T`}
+      className={short ? "border-red-900" : "border-emerald-900"}
+    >
+      {t.count === 0 ? (
+        <div className="text-xs text-neutral-500">Keine abgeschlossenen Trades im Zeitraum.</div>
+      ) : (
+        <>
+          <div className="grid grid-cols-2 gap-1.5 sm:grid-cols-4 lg:grid-cols-8">
+            {cell(
+              "Trades",
+              String(t.count),
+              undefined,
+              t.open ? `+${t.open} noch offen` : undefined
+            )}
+            {cell("Gewinn-Trades", t.winRate == null ? "–" : `${fmtNum(t.winRate, 1)} %`)}
+            {cell(
+              "Ø Ergebnis",
+              t.avgR == null ? "–" : `${t.avgR >= 0 ? "+" : ""}${fmtNum(t.avgR, 2)}R`,
+              signColor(t.avgR),
+              `Ø ${fmtPct(t.avgPct, 2)} je Trade`
+            )}
+            {cell(
+              "Median",
+              t.medianR == null ? "–" : `${fmtNum(t.medianR, 2)}R`,
+              signColor(t.medianR)
+            )}
+            {cell(
+              "Ziel erreicht",
+              `${fmtNum(t.pctTarget, 1)} %`,
+              "text-emerald-400",
+              `Ziel 1: ${fmtNum(t.pctTarget1, 1)} %`
+            )}
+            {cell("Stop ausgelöst", `${fmtNum(t.pctStop, 1)} %`, "text-red-400")}
+            {cell("Zeitausstieg", `${fmtNum(t.pctTime, 1)} %`)}
+            {cell(
+              "Ø Haltedauer",
+              `${fmtNum(t.avgDays, 1)} T`,
+              undefined,
+              `bestes ${fmtNum(t.bestR, 1)}R / schlechtestes ${fmtNum(t.worstR, 1)}R`
+            )}
+          </div>
+          <p className="mt-2 text-[10px] text-neutral-400">
+            R = Vielfaches des eingesetzten Risikos (Abstand Einstieg–Stop). Ein Ø-Ergebnis über 0R
+            bedeutet, dass die Regeln nach Kosten im Schnitt Gewinn gebracht hätten; darunter
+            Verlust.{" "}
+            {short ? "Short-Ergebnisse sind richtungsbereinigt (Kursrückgang = Gewinn). " : ""}
+            Vergangene Ergebnisse sind keine Garantie für die Zukunft.
+          </p>
+        </>
+      )}
+    </Panel>
   );
 }

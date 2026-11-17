@@ -52,6 +52,7 @@ export function OpportunitiesView() {
             "change",
             "score",
             "category",
+            "trade",
             "ret20",
             "ext",
             "detected",

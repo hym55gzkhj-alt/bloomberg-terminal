@@ -90,6 +90,7 @@ export function SignalsView() {
               "volRatio",
               "score",
               "category",
+              "trade",
               "detected",
               "reason",
               "ext",

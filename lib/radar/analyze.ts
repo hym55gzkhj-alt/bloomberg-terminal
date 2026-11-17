@@ -23,6 +23,7 @@ import {
 } from "./providers/finnhub";
 import { getHistory, getYahooNews } from "./providers/yahoo";
 import { buildFactors, combine, explain } from "./scoring";
+import { tradeSetup } from "./trade";
 import type {
   EarningsSurprise,
   Fundamentals,
@@ -245,6 +246,14 @@ export async function analyzeEntry(
     detectedAt,
     dataSources,
     warnings,
+    trade: tradeSetup({
+      category: combined.category,
+      score: combined.score,
+      coverage: combined.coverage,
+      technical: snap,
+      extension,
+      components,
+    }),
   };
 
   return {

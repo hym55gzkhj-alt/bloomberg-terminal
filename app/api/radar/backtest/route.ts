@@ -10,6 +10,7 @@ export const maxDuration = 300;
 export async function GET(req: NextRequest) {
   const sp = req.nextUrl.searchParams;
   const params: Partial<BacktestParams> = {};
+  if (sp.get("direction")) params.direction = sp.get("direction") as BacktestParams["direction"];
   const mc = sp.get("minCategory");
   if (mc) params.minCategory = mc as BacktestParams["minCategory"];
   if (sp.get("costBps")) params.costBps = Number(sp.get("costBps"));

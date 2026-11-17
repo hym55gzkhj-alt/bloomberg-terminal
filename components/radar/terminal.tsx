@@ -16,6 +16,7 @@ import { OverviewView } from "./views/overview";
 import { ScannerView } from "./views/scanner";
 import { SettingsView } from "./views/settings";
 import { SignalsView } from "./views/signals";
+import { TradesView } from "./views/trades";
 import { WatchlistView } from "./views/watchlist";
 
 function Clock() {
@@ -136,6 +137,7 @@ export default function RadarTerminal() {
       <main className="flex-1 p-2">
         {view === "overview" && <OverviewView />}
         {view === "signals" && <SignalsView />}
+        {view === "trades" && <TradesView />}
         {view === "opportunities" && <OpportunitiesView />}
         {view === "scanner" && <ScannerView />}
         {view === "analysis" && <AnalysisView />}

@@ -55,6 +55,7 @@ export function WatchlistView() {
             "volRatio",
             "score",
             "category",
+            "trade",
             "detected",
             "reason",
           ]}

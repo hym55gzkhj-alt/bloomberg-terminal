@@ -8,6 +8,7 @@ import { atomWithStorage } from "jotai/utils";
 export type ViewKey =
   | "overview"
   | "signals"
+  | "trades"
   | "opportunities"
   | "scanner"
   | "analysis"
@@ -19,6 +20,7 @@ export type ViewKey =
 export const VIEWS: { key: ViewKey; code: string; label: string; hotkey: string }[] = [
   { key: "overview", code: "MKT", label: "Market Overview", hotkey: "1" },
   { key: "signals", code: "SIG", label: "AI Early Signals", hotkey: "2" },
+  { key: "trades", code: "TRD", label: "Trade-Ideen", hotkey: "0" },
   { key: "opportunities", code: "TOP", label: "Top Opportunities", hotkey: "3" },
   { key: "scanner", code: "SCAN", label: "Stock Scanner", hotkey: "4" },
   { key: "analysis", code: "ANLY", label: "Company Analysis", hotkey: "5" },
@@ -41,6 +43,7 @@ export const watchlistAtom = atomWithStorage<string[]>("radar.watchlist", [
 export const weightsAtom = atomWithStorage<Weights>("radar.weights", DEFAULT_WEIGHTS);
 
 export const backtestParamsAtom = atom<Partial<BacktestParams>>({
+  direction: "long",
   minCategory: "EARLY_SIGNAL",
   costBps: 10,
   entryDelayDays: 1,

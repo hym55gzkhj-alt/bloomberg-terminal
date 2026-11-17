@@ -3,6 +3,7 @@
 import { DEFAULT_CONFIG } from "@/lib/radar/config";
 import type { OverviewRow } from "@/lib/radar/scan";
 import { buildFactors, combine, explain } from "@/lib/radar/scoring";
+import { tradeSetup } from "@/lib/radar/trade";
 import type {
   BacktestParams,
   BacktestResult,
@@ -128,6 +129,14 @@ export function reweight(
     factors: buildFactors(a.components, a.extension),
     explanation: explain(a.components, c, a.extension, weights),
     detectedAt: c.category === a.category ? a.detectedAt : null,
+    trade: tradeSetup({
+      category: c.category,
+      score: c.score,
+      coverage: c.coverage,
+      technical: a.technical,
+      extension: a.extension,
+      components: a.components,
+    }),
     serverCategory: a.category,
   };
 }
