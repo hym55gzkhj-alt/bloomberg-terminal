@@ -226,6 +226,8 @@ export interface StockAnalysis {
   warnings: string[];
   /** Regelbasierte Trade-Einschätzung (Long/Short/kein Trade) */
   trade: TradeSetup;
+  /** Gründe für eine eingeschränkte Analyse (geringe Liquidität, kurze Historie) */
+  limited?: string[];
 }
 
 export interface DetailPayload {
