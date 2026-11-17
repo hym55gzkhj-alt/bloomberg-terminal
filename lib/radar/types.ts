@@ -222,6 +222,8 @@ export interface StockAnalysis {
   detectedAt: number | null;
   dataSources: string[];
   warnings: string[];
+  /** Regelbasierte Trade-Einschätzung (Long/Short/kein Trade) */
+  trade: TradeSetup;
 }
 
 export interface DetailPayload {
@@ -235,6 +237,61 @@ export interface DetailPayload {
   upcomingEarnings: UpcomingEarnings | null;
   signalHistory: SignalHistoryEntry[];
   historicalSignals: BacktestSignal[];
+}
+
+export type TradeBias = "LONG" | "SHORT" | "NEUTRAL";
+
+export interface TradeSetup {
+  bias: TradeBias;
+  /** Kurzbeschreibung, z. B. "Long-Einstieg möglich" */
+  action: string;
+  /** 0..100 – Stärke der Signallage, KEINE Gewinnwahrscheinlichkeit */
+  conviction: number;
+  convictionLabel: "niedrig" | "mittel" | "hoch";
+  entry: number | null;
+  entryNote: string;
+  stop: number | null;
+  target1: number | null;
+  target2: number | null;
+  /** Abstand Einstieg–Stop in % */
+  riskPct: number | null;
+  /** Chance/Risiko bis Kursziel 2 */
+  rewardRisk: number;
+  horizon: string;
+  reasons: string[];
+  risks: string[];
+  invalidation: string;
+}
+
+export interface TradeSimulation {
+  stop: number;
+  target1: number;
+  target2: number;
+  exitDate: string;
+  exitPrice: number;
+  outcome: "Ziel" | "Stop" | "Zeit" | "offen";
+  /** Ergebnis in Vielfachen des Risikos nach Kosten */
+  r: number;
+  /** Ergebnis in % nach Kosten (richtungsbereinigt) */
+  pct: number;
+  target1Hit: boolean;
+  days: number;
+}
+
+export interface TradeStats {
+  count: number;
+  winRate: number | null;
+  avgR: number | null;
+  medianR: number | null;
+  avgPct: number | null;
+  pctTarget: number | null;
+  pctStop: number | null;
+  pctTime: number | null;
+  pctTarget1: number | null;
+  avgDays: number | null;
+  bestR: number | null;
+  worstR: number | null;
+  open: number;
 }
 
 export interface SignalHistoryEntry {
@@ -255,6 +312,7 @@ export interface ScanResult {
 
 export interface BacktestSignal {
   ticker: string;
+  direction: "long" | "short";
   date: string;
   category: SignalCategory;
   score: number;
@@ -264,8 +322,10 @@ export interface BacktestSignal {
   returns: Record<string, number | null>;
   /** Benchmark return over the same window, % */
   benchmarkReturns: Record<string, number | null>;
-  /** Max drawdown from entry within the longest horizon, % */
+  /** Max adverse move from entry within the longest horizon, % (direction-adjusted) */
   maxAdverse: number | null;
+  /** Trade-Simulation mit Stop-Loss und Kursziel (null wenn Einstieg noch aussteht) */
+  trade: TradeSimulation | null;
 }
 
 export interface HorizonStats {
@@ -286,6 +346,7 @@ export interface BacktestResult {
   generatedAt: number;
   signals: BacktestSignal[];
   stats: Record<SignalCategory | "ALL", HorizonStats[]>;
+  tradeStats: TradeStats;
   universe: string[];
   period: { from: string; to: string };
   methodology: string[];
@@ -294,6 +355,8 @@ export interface BacktestResult {
 }
 
 export interface BacktestParams {
+  /** long = positive Trade-Setups, short = Short-Setups */
+  direction: "long" | "short";
   minCategory: "EARLY_SIGNAL" | "BUILDING_MOMENTUM" | "STRONG_MOMENTUM";
   costBps: number;
   entryDelayDays: number;

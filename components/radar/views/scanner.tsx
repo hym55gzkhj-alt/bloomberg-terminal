@@ -14,6 +14,7 @@ const sorters: Partial<Record<Column, (a: StockAnalysis) => number | string>> = 
   volRatio: (a) => a.technical.volRatio50 ?? 0,
   score: (a) => a.score,
   category: (a) => CATEGORY_RANK[a.category],
+  trade: (a) => (a.trade.bias === "LONG" ? 2 : a.trade.bias === "NEUTRAL" ? 1 : 0),
   ret20: (a) => a.technical.ret20 ?? 0,
   ext: (a) => a.extension.level,
   coverage: (a) => a.coverage,
@@ -128,6 +129,7 @@ export function ScannerView() {
           "ret20",
           "score",
           "category",
+          "trade",
           "ext",
           "coverage",
         ]}

@@ -62,10 +62,11 @@ export async function scanUniverse(): Promise<ScanResult> {
 }
 
 export async function stockDetail(entry: UniverseEntry): Promise<DetailPayload> {
-  const [bundle, signalHistory, bt] = await Promise.all([
+  const [bundle, signalHistory, bt, btShort] = await Promise.all([
     analyzeEntry(entry, { recordHistory: false, realtimeQuote: true }),
     getSignalHistory(entry.ticker),
-    runBacktest({ tickers: [entry.ticker], years: 5 }).catch(() => null),
+    runBacktest({ tickers: [entry.ticker], years: 5, direction: "long" }).catch(() => null),
+    runBacktest({ tickers: [entry.ticker], years: 5, direction: "short" }).catch(() => null),
   ]);
   return {
     analysis: bundle.analysis,
@@ -77,7 +78,9 @@ export async function stockDetail(entry: UniverseEntry): Promise<DetailPayload> 
     earnings: bundle.earnings,
     upcomingEarnings: bundle.upcomingEarnings,
     signalHistory,
-    historicalSignals: bt?.signals ?? [],
+    historicalSignals: [...(bt?.signals ?? []), ...(btShort?.signals ?? [])].sort((a, b) =>
+      a.date < b.date ? 1 : -1
+    ),
   };
 }
 

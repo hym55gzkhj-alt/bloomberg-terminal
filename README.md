@@ -11,6 +11,7 @@ Früherkennung ungewöhnlicher Entwicklungen bei bekannten, liquiden Aktien. Die
 | Taste | Code | Ansicht | Inhalt |
 |---|---|---|---|
 | 1 | MKT | Market Overview | US-/EU-/Asien-Indizes, Sektor-ETFs, FX/Zinsen (Kurs, Tag, 20 T, YTD, 30-T-Sparkline), Marktbreite des Universums |
+| 0 | TRD | Trade-Ideen | Alle aktuellen Long- und Short-Setups mit Einstieg, Stop, Zielen und der historischen Bilanz der Regeln |
 | 2 | SIG | **AI Early Signals** | Erkannte Aktien mit Kurs, Tagesveränderung, Volumen, Vol/Ø50, Score, Kategorie, Erkennungszeitpunkt, Begründung |
 | 3 | TOP | Top Opportunities | Positive Signale **ohne** starke Überdehnung, Ranking = Score × (1 − Überdehnung) |
 | 4 | SCAN | Stock Scanner | Sortier- und filterbar nach Score, Kategorie, Sektor, Region und Suche |
@@ -53,6 +54,19 @@ Alle Schwellen stehen in `lib/radar/config.ts`.
 **Erkennungszeitpunkt:** Jeder Scan speichert Kategoriewechsel, bei konfiguriertem Upstash in Redis. „Erkannt“ ist der Zeitpunkt, an dem die aktuelle Kategorie erstmals festgestellt wurde.
 
 **Laufende Sitzung:** Das Tagesvolumen wird über ein typisches Intraday-Volumenprofil hochgerechnet und als „hochgerechnet“ gekennzeichnet.
+
+## Trade-Einschätzung Long / Short (`lib/radar/trade.ts`)
+
+Jede Aktie bekommt eine regelbasierte Einschätzung: **LONG**, **SHORT**, **ABWARTEN** oder **KEIN TRADE**. Dazu gehören Einstieg, Stop-Loss, zwei Kursziele, Chance/Risiko, Überzeugungsgrad, Gründe, Gegenargumente und eine Ungültigkeitsbedingung.
+
+| Setup | Regel |
+|---|---|
+| LONG | Einstufung EARLY/BUILDING/STRONG und Überdehnung < 0,6 |
+| SHORT | Einstufung NEGATIVE, Kurs unter SMA50 und SMA200 (oder SMA50 < SMA200), Momentum oder relative Stärke negativ, RSI ≥ 30, nicht mehr als 5 ATR unter SMA50 |
+| ABWARTEN | Setup vorhanden, aber überdehnt bzw. überverkauft: Einstieg erst bei Rücksetzer bzw. Erholung Richtung SMA20 |
+| Stop / Ziele | Stop 2× ATR14, Kursziel 1 = 1,5R, Kursziel 2 = 3R, maximale Haltedauer 20 Handelstage |
+
+Der Backtest (Ansicht BT, Richtung Long oder Short) simuliert **exakt diese Regeln** mit Stop-Loss, Kursziel, Zeitausstieg, Kurslücken und Kosten. Die historische Bilanz der Regeln steht direkt in jeder Trade-Box. Das ist eine analytische Einordnung, keine Anlageberatung.
 
 ## Historische Validierung (`lib/radar/backtest.ts`)
 
