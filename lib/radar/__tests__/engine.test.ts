@@ -108,3 +108,15 @@ describe("sentiment", () => {
     expect(scoreSentiment("Apple upgraded to buy").hits.positive).toContain("upgraded");
   });
 });
+
+describe("universe ISINs", () => {
+  it("every base universe entry has a valid ISIN (check digit)", async () => {
+    const { BASE_UNIVERSE } = await import("../universe");
+    const { isValidIsin } = await import("../isin");
+    for (const e of BASE_UNIVERSE) {
+      expect(e.isin, e.ticker).toBeTruthy();
+      expect(isValidIsin(e.isin as string), `${e.ticker} ${e.isin}`).toBe(true);
+    }
+    expect(isValidIsin("US0378331006")).toBe(false);
+  });
+});

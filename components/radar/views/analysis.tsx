@@ -29,6 +29,7 @@ import { TradePanel } from "../trade-panel";
 import {
   CategoryBadge,
   ComponentBars,
+  CopyIsin,
   ErrorBox,
   FreshnessTag,
   Loading,
@@ -142,6 +143,9 @@ function Detail({ data }: { data: DetailPayload }) {
           <div className="text-[10px] text-neutral-500">
             {q.exchange} · {a.entry.sector} · Benchmark {a.entry.benchmark} · Sektor-ETF{" "}
             {a.entry.sectorEtf}
+          </div>
+          <div className="mt-1">
+            <CopyIsin isin={a.entry.isin} large />
           </div>
         </div>
         <div>
