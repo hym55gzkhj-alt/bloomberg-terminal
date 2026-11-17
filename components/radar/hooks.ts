@@ -1,6 +1,7 @@
 "use client";
 
 import { DEFAULT_CONFIG } from "@/lib/radar/config";
+import type { OverviewRow } from "@/lib/radar/scan";
 import { buildFactors, combine, explain } from "@/lib/radar/scoring";
 import type {
   BacktestParams,
@@ -12,7 +13,6 @@ import type {
   StockAnalysis,
   Weights,
 } from "@/lib/radar/types";
-import type { OverviewRow } from "@/lib/radar/scan";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useAtomValue } from "jotai";
 import { useMemo } from "react";

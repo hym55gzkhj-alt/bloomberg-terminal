@@ -1,6 +1,7 @@
 import { kvGet, kvSet } from "./cache";
 import { DEFAULT_CONFIG, serverWeights } from "./config";
 import {
+  type SeriesCtx,
   analystsComponent,
   extensionOf,
   fundamentalsComponent,
@@ -8,7 +9,6 @@ import {
   momentumComponent,
   newsComponent,
   relativeStrengthComponent,
-  type SeriesCtx,
   volumeComponent,
 } from "./engine";
 import { computeSeries, snapshotAt } from "./indicators";

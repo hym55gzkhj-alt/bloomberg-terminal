@@ -7,8 +7,8 @@ import {
   DEFAULT_WEIGHTS,
 } from "@/lib/radar/config";
 import { useAtom } from "jotai";
-import { Panel } from "../ui";
 import { weightsAtom } from "../state";
+import { Panel } from "../ui";
 
 const DESCRIPTIONS: Record<string, string> = {
   volume:
