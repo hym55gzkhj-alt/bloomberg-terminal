@@ -48,3 +48,29 @@ export function ScanMeta({ scan }: { scan: ScanResult }) {
     </div>
   );
 }
+
+export function ScanProgressBar({ scan }: { scan: ScanResult }) {
+  const p = scan.progress;
+  if (!p || p.pending === 0) return null;
+  const pct = Math.round((p.analyzed / Math.max(1, p.total)) * 100);
+  const initial = p.analyzed < p.total;
+  return (
+    <div className="my-1 border border-amber-800 bg-amber-950/30 p-2 text-[11px] text-amber-200">
+      <div className="flex items-center justify-between">
+        <span>
+          {initial
+            ? `Erster Durchlauf: ${p.analyzed} von ${p.total} Aktien analysiert`
+            : `Aktualisierung läuft: ${p.pending} von ${p.total} Aktien werden neu berechnet`}
+        </span>
+        <span className="tabular-nums">{pct} %</span>
+      </div>
+      <div className="mt-1 h-1.5 bg-neutral-800">
+        <div className="h-full bg-amber-500" style={{ width: `${pct}%` }} />
+      </div>
+      <div className="mt-1 text-[10px] text-amber-300/80">
+        Mit kostenlosen Datenquellen werden ca. 50 Aktien pro Minute geladen. Die Liste füllt sich
+        automatisch, solange die Seite geöffnet ist.
+      </div>
+    </div>
+  );
+}

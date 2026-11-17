@@ -11,6 +11,7 @@ import type {
   NewsItem,
   ProviderStatus,
   ScanResult,
+  SlimAnalysis,
   StockAnalysis,
   Weights,
 } from "@/lib/radar/types";
@@ -48,10 +49,15 @@ export function useScan() {
     queryKey: keys.scan,
     queryFn: () => getJson<ScanResult>("/api/radar/scan"),
     // while rate-limited Finnhub data is still loading in the background, refresh sooner
-    refetchInterval: (q) =>
-      q.state.data?.results.some((r) => r.warnings.some((w) => w.includes("nachgeladen")))
-        ? 60_000
-        : 5 * 60_000,
+    // while stocks are still waiting for (re-)analysis or Finnhub data is loading in the
+    // background, poll more often – every request advances the incremental scan
+    refetchInterval: (q) => {
+      const d = q.state.data;
+      if (!d) return 30_000;
+      if (d.progress.pending > 0) return 10_000;
+      if (d.results.some((r) => r.warnings.some((w) => w.includes("nachgeladen")))) return 60_000;
+      return 5 * 60_000;
+    },
     staleTime: 4 * 60_000,
     retry: 1,
   });
@@ -121,7 +127,7 @@ export function useBacktest(params: Partial<BacktestParams>, enabled = true) {
 
 /** Re-applies the user's weights to the REAL component data returned by the server. */
 export function reweight(
-  a: StockAnalysis,
+  a: SlimAnalysis,
   weights: Weights
 ): StockAnalysis & { serverCategory: string } {
   const c = combine(a.components, weights, a.extension, DEFAULT_CONFIG);

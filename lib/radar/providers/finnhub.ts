@@ -187,36 +187,41 @@ export async function getFundamentals(symbol: string): Promise<Fundamentals> {
 }
 
 export async function getCompanyNews(symbol: string, days = 14): Promise<NewsItem[]> {
-  const res = await cached(`finnhub:news:${symbol}:${days}`, 900, async () => {
-    const to = new Date();
-    const from = new Date(Date.now() - days * 86400_000);
-    const data = await call<
-      {
-        id: number;
-        headline: string;
-        summary: string;
-        url: string;
-        source: string;
-        datetime: number;
-        related: string;
-      }[]
-    >(`company-news?symbol=${encodeURIComponent(symbol)}&from=${ymd(from)}&to=${ymd(to)}`);
-    return (Array.isArray(data) ? data : []).slice(0, 60).map((n): NewsItem => {
-      const s = scoreSentiment(`${n.headline}. ${n.summary ?? ""}`);
-      return {
-        id: `f-${n.id}`,
-        headline: n.headline,
-        summary: n.summary ?? "",
-        url: n.url,
-        source: n.source,
-        publishedAt: n.datetime * 1000,
-        tickers: (n.related || symbol).split(",").filter(Boolean),
-        sentiment: s.score,
-        sentimentHits: s.hits,
-        provider: PROVIDER,
-      };
-    });
-  });
+  const res = await cached(
+    `finnhub:news:${symbol}:${days}`,
+    900,
+    async () => {
+      const to = new Date();
+      const from = new Date(Date.now() - days * 86400_000);
+      const data = await call<
+        {
+          id: number;
+          headline: string;
+          summary: string;
+          url: string;
+          source: string;
+          datetime: number;
+          related: string;
+        }[]
+      >(`company-news?symbol=${encodeURIComponent(symbol)}&from=${ymd(from)}&to=${ymd(to)}`);
+      return (Array.isArray(data) ? data : []).slice(0, 60).map((n): NewsItem => {
+        const s = scoreSentiment(`${n.headline}. ${n.summary ?? ""}`);
+        return {
+          id: `f-${n.id}`,
+          headline: n.headline,
+          summary: n.summary ?? "",
+          url: n.url,
+          source: n.source,
+          publishedAt: n.datetime * 1000,
+          tickers: (n.related || symbol).split(",").filter(Boolean),
+          sentiment: s.score,
+          sentimentHits: s.hits,
+          provider: PROVIDER,
+        };
+      });
+    },
+    { shared: false }
+  );
   return res.data;
 }
 
@@ -244,12 +249,17 @@ export async function getFinnhubQuote(symbol: string): Promise<{
   previousClose: number;
   time: number;
 } | null> {
-  const res = await cached(`finnhub:quote:${symbol}`, 60, async () => {
-    const q = await call<{ c: number; d: number; dp: number; pc: number; t: number }>(
-      `quote?symbol=${encodeURIComponent(symbol)}`
-    );
-    if (!q || !q.c || !q.t) return null;
-    return { price: q.c, change: q.d, changePct: q.dp, previousClose: q.pc, time: q.t * 1000 };
-  });
+  const res = await cached(
+    `finnhub:quote:${symbol}`,
+    60,
+    async () => {
+      const q = await call<{ c: number; d: number; dp: number; pc: number; t: number }>(
+        `quote?symbol=${encodeURIComponent(symbol)}`
+      );
+      if (!q || !q.c || !q.t) return null;
+      return { price: q.c, change: q.d, changePct: q.dp, previousClose: q.pc, time: q.t * 1000 };
+    },
+    { shared: false }
+  );
   return res.data;
 }

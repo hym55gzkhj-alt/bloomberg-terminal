@@ -10,10 +10,23 @@ export class ProviderError extends Error {
   }
 }
 
+import { AsyncLocalStorage } from "node:async_hooks";
+
+/**
+ * Marks provider calls made by the background scan. Interactive requests (detail view,
+ * status, overview) are always served before queued background work.
+ */
+export const requestContext = new AsyncLocalStorage<{ background: boolean }>();
+
+export function runInBackground<T>(fn: () => Promise<T>): Promise<T> {
+  return requestContext.run({ background: true }, fn);
+}
+
 interface QueueItem {
   resolve: () => void;
   reject: (err: Error) => void;
   precheck?: () => Error | null;
+  background: boolean;
 }
 
 /**
@@ -34,8 +47,16 @@ export class RateLimiter {
   ) {}
 
   async schedule<T>(fn: () => Promise<T>, precheck?: () => Error | null): Promise<T> {
+    const background = requestContext.getStore()?.background ?? false;
     await new Promise<void>((resolve, reject) => {
-      this.queue.push({ resolve, reject, precheck });
+      const item = { resolve, reject, precheck, background };
+      if (background) this.queue.push(item);
+      else {
+        // foreground: ahead of all queued background work
+        const firstBg = this.queue.findIndex((q) => q.background);
+        if (firstBg < 0) this.queue.push(item);
+        else this.queue.splice(firstBg, 0, item);
+      }
       this.next();
     });
     try {

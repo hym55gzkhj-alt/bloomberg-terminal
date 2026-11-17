@@ -232,7 +232,7 @@ function Detail({ data }: { data: DetailPayload }) {
             {a.entry.sectorEtf}
           </div>
           <div className="mt-1">
-            <CopyIsin isin={a.entry.isin} large />
+            <CopyIsin isin={a.entry.isin} name={q.name} large />
           </div>
         </div>
         <div>
