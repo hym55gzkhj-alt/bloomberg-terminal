@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import "../styles/globals.css";
 
 export const metadata: Metadata = {
-  title: "Bloomberg Terminal",
-  description: "Next.js Minimal Trader Terminal",
+  title: "AI Stock Radar",
+  description:
+    "Früherkennung ungewöhnlicher Entwicklungen bei liquiden Large Caps – mit echten Marktdaten.",
 };
 
 export default function RootLayout({
@@ -12,8 +13,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="de" className="dark">
+      <body className="bg-black">{children}</body>
     </html>
   );
 }
