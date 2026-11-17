@@ -41,7 +41,8 @@ export function cacheBackend(): "redis" | "memory" {
   return getRedis() ? "redis" : "memory";
 }
 
-const MAX_MEM_ENTRIES = 2000;
+// ~590 stocks × (history, news, fundamentals …) – keep enough entries in memory
+const MAX_MEM_ENTRIES = 8000;
 
 function memSet<T>(key: string, env: Envelope<T>) {
   if (mem.size >= MAX_MEM_ENTRIES) {
@@ -51,10 +52,10 @@ function memSet<T>(key: string, env: Envelope<T>) {
   mem.set(key, env);
 }
 
-async function readEnvelope<T>(key: string): Promise<Envelope<T> | null> {
+async function readEnvelope<T>(key: string, shared: boolean): Promise<Envelope<T> | null> {
   const local = mem.get(key) as Envelope<T> | undefined;
   if (local && local.expiresAt > Date.now()) return local;
-  const redis = getRedis();
+  const redis = shared ? getRedis() : null;
   if (!redis) return null;
   try {
     const remote = await redis.get<Envelope<T>>(`radar:${key}`);
@@ -68,9 +69,9 @@ async function readEnvelope<T>(key: string): Promise<Envelope<T> | null> {
   return null;
 }
 
-async function writeEnvelope<T>(key: string, env: Envelope<T>, ttlSec: number) {
+async function writeEnvelope<T>(key: string, env: Envelope<T>, ttlSec: number, shared: boolean) {
   memSet(key, env);
-  const redis = getRedis();
+  const redis = shared ? getRedis() : null;
   if (!redis) return;
   try {
     await redis.set(`radar:${key}`, env, { ex: Math.max(1, Math.ceil(ttlSec)) });
@@ -92,9 +93,15 @@ export interface Cached<T> {
 export async function cached<T>(
   key: string,
   ttlSec: number | ((value: T) => number),
-  fetcher: () => Promise<T>
+  fetcher: () => Promise<T>,
+  /**
+   * shared = also store in Redis (visible to all server instances). High-volume, cheap
+   * data (price history, news) stays in process memory to save Redis commands.
+   */
+  opts: { shared?: boolean } = {}
 ): Promise<Cached<T>> {
-  const hit = await readEnvelope<T>(key);
+  const shared = opts.shared ?? true;
+  const hit = await readEnvelope<T>(key, shared);
   if (hit) return { data: hit.v, fetchedAt: hit.fetchedAt, cacheHit: true };
 
   const running = inflight.get(key) as Promise<Cached<T>> | undefined;
@@ -105,7 +112,7 @@ export async function cached<T>(
       const v = await fetcher();
       const now = Date.now();
       const ttl = typeof ttlSec === "function" ? ttlSec(v) : ttlSec;
-      await writeEnvelope(key, { v, fetchedAt: now, expiresAt: now + ttl * 1000 }, ttl);
+      await writeEnvelope(key, { v, fetchedAt: now, expiresAt: now + ttl * 1000 }, ttl, shared);
       return { data: v, fetchedAt: now, cacheHit: false };
     } finally {
       inflight.delete(key);
@@ -136,5 +143,64 @@ export async function kvSet<T>(key: string, value: T): Promise<void> {
     await redis.set(`radar:kv:${key}`, value);
   } catch (err) {
     console.warn("[kv] redis write failed:", (err as Error).message);
+  }
+}
+
+// ------------------------------------------------------------------ hash store
+const g2 = globalThis as unknown as { __radarHash?: Map<string, Map<string, unknown>> };
+if (!g2.__radarHash) g2.__radarHash = new Map();
+const hashMem = g2.__radarHash;
+
+function localHash(name: string): Map<string, unknown> {
+  let h = hashMem.get(name);
+  if (!h) {
+    h = new Map();
+    hashMem.set(name, h);
+  }
+  return h;
+}
+
+/**
+ * Reads a whole hash (one Redis command). Falls back to / merges with process memory.
+ */
+export async function hashGetAll<T>(name: string): Promise<Record<string, T>> {
+  const local = localHash(name);
+  const redis = getRedis();
+  if (redis) {
+    try {
+      const remote = (await redis.hgetall<Record<string, T>>(`radar:h:${name}`)) ?? {};
+      for (const [k, v] of Object.entries(remote)) local.set(k, v);
+    } catch (err) {
+      console.warn("[hash] redis read failed:", (err as Error).message);
+    }
+  }
+  return Object.fromEntries(local) as Record<string, T>;
+}
+
+export async function hashGet<T>(name: string, field: string): Promise<T | null> {
+  const redis = getRedis();
+  if (redis) {
+    try {
+      const v = await redis.hget<T>(`radar:h:${name}`, field);
+      if (v != null) return v;
+    } catch (err) {
+      console.warn("[hash] redis read failed:", (err as Error).message);
+    }
+  }
+  return (localHash(name).get(field) as T) ?? null;
+}
+
+/** Writes many fields in ONE Redis command (HSET with multiple pairs). */
+export async function hashSetMany<T>(name: string, values: Record<string, T>): Promise<void> {
+  const entries = Object.entries(values);
+  if (!entries.length) return;
+  const local = localHash(name);
+  for (const [k, v] of entries) local.set(k, v);
+  const redis = getRedis();
+  if (!redis) return;
+  try {
+    await redis.hset(`radar:h:${name}`, values as Record<string, unknown>);
+  } catch (err) {
+    console.warn("[hash] redis write failed:", (err as Error).message);
   }
 }

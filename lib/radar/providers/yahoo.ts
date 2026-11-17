@@ -177,7 +177,7 @@ async function rawChart(symbol: string, range: string): Promise<PriceHistory> {
  */
 export async function getHistory(symbol: string, range: "1y" | "2y" | "5y" | "10y" = "2y") {
   const key = `yahoo:chart:${symbol}:${range}`;
-  const res = await cached(key, 300, () => rawChart(symbol, range));
+  const res = await cached(key, 300, () => rawChart(symbol, range), { shared: false });
   return res;
 }
 
@@ -195,34 +195,39 @@ interface YahooSearchResponse {
 
 export async function getYahooNews(symbol: string, count = 15): Promise<NewsItem[]> {
   const key = `yahoo:news:${symbol}:${count}`;
-  const res = await cached(key, 900, async () => {
-    const url = `${BASE}/v1/finance/search?q=${encodeURIComponent(symbol)}&quotesCount=0&newsCount=${count}&enableFuzzyQuery=false`;
-    const json = await limiter.schedule(() =>
-      fetchJson<YahooSearchResponse>(PROVIDER, url, { headers: HEADERS })
-    );
-    return (json.news ?? []).map((n): NewsItem => {
-      const s = scoreSentiment(n.title);
-      return {
-        id: `y-${n.uuid}`,
-        headline: n.title,
-        summary: "",
-        url: n.link,
-        source: n.publisher,
-        publishedAt: n.providerPublishTime * 1000,
-        tickers: n.relatedTickers ?? [symbol],
-        sentiment: s.score,
-        sentimentHits: s.hits,
-        provider: PROVIDER,
-      };
-    });
-  });
+  const res = await cached(
+    key,
+    900,
+    async () => {
+      const url = `${BASE}/v1/finance/search?q=${encodeURIComponent(symbol)}&quotesCount=0&newsCount=${count}&enableFuzzyQuery=false`;
+      const json = await limiter.schedule(() =>
+        fetchJson<YahooSearchResponse>(PROVIDER, url, { headers: HEADERS })
+      );
+      return (json.news ?? []).map((n): NewsItem => {
+        const s = scoreSentiment(n.title);
+        return {
+          id: `y-${n.uuid}`,
+          headline: n.title,
+          summary: "",
+          url: n.link,
+          source: n.publisher,
+          publishedAt: n.providerPublishTime * 1000,
+          tickers: n.relatedTickers ?? [symbol],
+          sentiment: s.score,
+          sentimentHits: s.hits,
+          provider: PROVIDER,
+        };
+      });
+    },
+    { shared: false }
+  );
   return res.data;
 }
 
 /** Health probe used in the provider status panel. */
 export async function probeYahoo(): Promise<{ ok: boolean; message: string }> {
   try {
-    const r = await getHistory("SPY", "1y");
+    const r = await getHistory("SPY", "2y"); // same cache key as the analyses
     return {
       ok: true,
       message: `OK – SPY ${r.data.quote.price.toFixed(2)} (${r.data.quote.delayNote})`,
@@ -243,27 +248,32 @@ export interface SearchHit {
 export async function searchSymbols(query: string): Promise<SearchHit[]> {
   const q = query.trim().slice(0, 60);
   if (q.length < 2) return [];
-  const res = await cached(`yahoo:search:${q.toLowerCase()}`, 3600, async () => {
-    const url = `${BASE}/v1/finance/search?q=${encodeURIComponent(q)}&quotesCount=10&newsCount=0&enableFuzzyQuery=true`;
-    const json = await limiter.schedule(() =>
-      fetchJson<{
-        quotes?: {
-          symbol: string;
-          shortname?: string;
-          longname?: string;
-          exchDisp?: string;
-          quoteType?: string;
-        }[];
-      }>(PROVIDER, url, { headers: HEADERS })
-    );
-    return (json.quotes ?? [])
-      .filter((x) => x.quoteType === "EQUITY" && x.symbol)
-      .map((x) => ({
-        symbol: x.symbol,
-        name: (x.longname || x.shortname || x.symbol).trim(),
-        exchange: x.exchDisp ?? "",
-        type: x.quoteType ?? "",
-      }));
-  });
+  const res = await cached(
+    `yahoo:search:${q.toLowerCase()}`,
+    3600,
+    async () => {
+      const url = `${BASE}/v1/finance/search?q=${encodeURIComponent(q)}&quotesCount=10&newsCount=0&enableFuzzyQuery=true`;
+      const json = await limiter.schedule(() =>
+        fetchJson<{
+          quotes?: {
+            symbol: string;
+            shortname?: string;
+            longname?: string;
+            exchDisp?: string;
+            quoteType?: string;
+          }[];
+        }>(PROVIDER, url, { headers: HEADERS })
+      );
+      return (json.quotes ?? [])
+        .filter((x) => x.quoteType === "EQUITY" && x.symbol)
+        .map((x) => ({
+          symbol: x.symbol,
+          name: (x.longname || x.shortname || x.symbol).trim(),
+          exchange: x.exchDisp ?? "",
+          type: x.quoteType ?? "",
+        }));
+    },
+    { shared: false }
+  );
   return res.data;
 }

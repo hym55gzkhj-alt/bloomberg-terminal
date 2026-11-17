@@ -53,7 +53,7 @@ function TradeTable({ rows, onSelect }: { rows: StockAnalysis[]; onSelect: (t: s
                   <span className="font-bold text-amber-300">{r.entry.ticker}</span>{" "}
                   <span className="text-neutral-300">{r.entry.name}</span>
                   <div>
-                    <CopyIsin isin={r.entry.isin} />
+                    <CopyIsin isin={r.entry.isin} name={r.entry.name} />
                   </div>
                 </td>
                 <td className="px-1.5">

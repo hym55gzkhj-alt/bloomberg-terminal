@@ -3,7 +3,8 @@
  * Everything here describes REAL data fetched from a provider. Nothing is simulated.
  */
 
-export type Region = "US" | "DE" | "NL" | "DK";
+/** Country code of the primary listing, e.g. "US", "DE", "FR" */
+export type Region = string;
 
 export interface UniverseEntry {
   /** Internal id / display ticker */
@@ -21,6 +22,10 @@ export interface UniverseEntry {
   benchmark: string;
   /** Yahoo symbol of a sector ETF used for sector trend. */
   sectorEtf: string;
+  /** Index memberships, e.g. ["S&P 500", "Nasdaq-100"] */
+  indices?: string[];
+  /** true = Kern-Universum (20 bekannte Titel, häufigere Aktualisierung, Backtest-Standard) */
+  core?: boolean;
 }
 
 /** One daily OHLCV bar. Prices are split- and dividend-adjusted. */
@@ -305,9 +310,23 @@ export interface SignalHistoryEntry {
   price: number;
 }
 
+/** Stored/transmitted form: factors, explanation and trade are derived on the client. */
+export type SlimAnalysis = Omit<StockAnalysis, "factors" | "explanation" | "trade">;
+
+export interface ScanProgress {
+  total: number;
+  /** stocks with an analysis available */
+  analyzed: number;
+  /** stocks waiting for a (re-)analysis */
+  pending: number;
+  /** stocks that failed in the latest attempt */
+  failed: number;
+}
+
 export interface ScanResult {
   generatedAt: number;
-  results: StockAnalysis[];
+  results: SlimAnalysis[];
+  progress: ScanProgress;
   errors: { ticker: string; message: string }[];
   providers: ProviderStatus[];
   weights: Weights;

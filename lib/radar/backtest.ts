@@ -312,7 +312,9 @@ export async function runBacktest(input: Partial<BacktestParams>): Promise<Backt
 }
 
 async function computeBacktest(p: BacktestParams): Promise<BacktestResult> {
-  const universe = getUniverse().filter((e) => !p.tickers || p.tickers.includes(e.ticker));
+  // default: the 20 core stocks (a 10-year backtest of ~600 stocks would exceed the
+  // free data limits); a single stock of the large universe can be passed via tickers
+  const universe = getUniverse().filter((e) => (p.tickers ? p.tickers.includes(e.ticker) : e.core));
   const range = rangeFor(p.years);
   const startDate = new Date(Date.now() - p.years * 365.25 * 86400_000).toISOString().slice(0, 10);
   const ctxCache = new Map<string, Promise<SeriesCtx | null>>();

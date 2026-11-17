@@ -26,15 +26,26 @@ import {
  * ISIN with one-tap copy (e.g. to search the stock at a broker such as Trade Republic).
  * Falls back to selecting the text if the clipboard API is not available.
  */
-export function CopyIsin({ isin, large }: { isin?: string | null; large?: boolean }) {
+export function CopyIsin({
+  isin,
+  name,
+  large,
+}: {
+  isin?: string | null;
+  /** fallback: copy the company name (searchable at the broker) if no ISIN is known */
+  name?: string;
+  large?: boolean;
+}) {
   const [copied, setCopied] = useState(false);
-  if (!isin) {
+  const value = isin || name;
+  const label = isin ? "ISIN" : "Name";
+  if (!value) {
     return <span className="text-[9px] text-neutral-600">ISIN nicht hinterlegt</span>;
   }
   const copy = async (e: React.MouseEvent) => {
     e.stopPropagation();
     try {
-      await navigator.clipboard.writeText(isin);
+      await navigator.clipboard.writeText(value);
       setCopied(true);
       setTimeout(() => setCopied(false), 1500);
     } catch {
@@ -53,7 +64,11 @@ export function CopyIsin({ isin, large }: { isin?: string | null; large?: boolea
       type="button"
       onClick={copy}
       onKeyDown={(e) => e.stopPropagation()}
-      title="ISIN kopieren – z. B. in der Trade-Republic-Suche einfügen"
+      title={
+        isin
+          ? "ISIN kopieren – z. B. in der Trade-Republic-Suche einfügen"
+          : "Keine geprüfte ISIN hinterlegt – Firmennamen kopieren und in der Trade-Republic-Suche einfügen (Treffer prüfen)"
+      }
       className={cn(
         "inline-flex items-center gap-1 border font-mono tabular-nums",
         large ? "px-2 py-1 text-xs" : "px-1 text-[9px] leading-4",
@@ -62,9 +77,9 @@ export function CopyIsin({ isin, large }: { isin?: string | null; large?: boolea
           : "border-neutral-700 text-neutral-300 hover:border-amber-500 hover:text-amber-200"
       )}
     >
-      <span className="text-neutral-500">ISIN</span>
-      <span data-isin className="select-all">
-        {isin}
+      <span className="text-neutral-500">{label}</span>
+      <span data-isin className="max-w-[160px] select-all truncate">
+        {value}
       </span>
       {copied ? (
         <Check className={large ? "h-3.5 w-3.5" : "h-2.5 w-2.5"} />
@@ -370,7 +385,7 @@ function cell(r: StockAnalysis, c: Column): ReactNode {
           <span className="font-bold text-amber-300">{r.entry.ticker}</span>{" "}
           <span className="text-neutral-300">{r.entry.name}</span>
           <div className="flex flex-wrap items-center gap-1 text-[9px] text-neutral-500">
-            {q.exchange} <CopyIsin isin={r.entry.isin} />
+            {q.exchange} <CopyIsin isin={r.entry.isin} name={r.entry.name} />
           </div>
         </div>
       );

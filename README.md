@@ -28,6 +28,25 @@ Die Befehlszeile (`/`) und das Analysefeld nehmen einen Ticker (z. B. `CRM`), ei
 
 Jede Aktie des Universums zeigt ihre **ISIN** mit Kopier-Knopf, z. B. für die Suche bei Trade Republic.
 
+## Aktien-Universum
+
+Die Größe wird über `RADAR_UNIVERSE` gewählt:
+
+| Modus | Titel | Inhalt | Kompletter Durchlauf |
+|---|---|---|---|
+| `medium` (Standard) | ~130 | alle DAX-40- und Euro-Stoxx-50-Werte, die 4 meistgehandelten US-Aktien jeder der 11 Branchen (Ø-Handelswert der letzten 3 Monate) und die 20 Kern-Titel | ca. 3 Min. |
+| `large` | ~570 | alle Werte aus S&P 500, Nasdaq-100, DAX 40, Euro Stoxx 50 | ca. 14 Min. |
+| `core` | 20 | Kern-Titel (NVIDIA, Microsoft, SAP, ASML …) | Sekunden |
+
+- Die Kern-Titel werden alle 5 Min. neu bewertet, die übrigen alle 30 Min. Der Backtest-Standard bleibt bei den Kern-Titeln.
+- Die Liste `lib/radar/data/universe-large.json` erzeugt `python3 scripts/build_universe.py` aus Wikipedia, ohne Handeingaben. Jedes Symbol wird dabei gegen echte Yahoo-Kursdaten geprüft, und das Skript misst das Handelsvolumen für die Auswahl. Es sollte nach Indexänderungen (quartalsweise) neu laufen.
+- ISINs liegen für die Kern-Titel und die Nasdaq-100 vor, jeweils per Prüfziffer validiert. Bei den übrigen Titeln kopiert der Knopf den Firmennamen für die Suche bei Trade Republic.
+- Alle diese Titel sind in der Regel bei Trade Republic handelbar. Vor einem Trade bitte in der App prüfen.
+
+**Schrittweiser Scan:** Mit kostenlosen Datenquellen lassen sich etwa 45–50 Aktien pro Minute laden. Jede Scan-Anfrage startet deshalb einen Hintergrundlauf von bis zu 4 Minuten (`next/server` `after`). Der Lauf analysiert zuerst fehlende, dann die ältesten Titel und speichert Zwischenergebnisse laufend. Die Oberfläche zeigt den Fortschritt und fragt währenddessen alle 10 s ab. Der erste komplette Durchlauf dauert etwa 12–15 Minuten.
+
+**Upstash-Verbrauch:** Kursdaten und News bleiben im Arbeitsspeicher. In Redis landen nur die Analyse-Ergebnisse (ein Hash, wenige Befehle pro Durchlauf), die Signalhistorie (nur bei Kategoriewechseln) sowie Fundamentaldaten und Backtests. Damit reicht der kostenlose Upstash-Plan.
+
 ## AI Early Signal Engine (`lib/radar/engine.ts`)
 
 Jede Komponente liefert einen Wert von 0 bis 1 (0,5 = neutral) und dazu die konkreten Fakten, aus denen er entsteht.

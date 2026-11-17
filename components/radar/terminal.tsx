@@ -10,6 +10,7 @@ import { fmtAge } from "./lib/format";
 import { VIEWS, selectedTickerAtom, viewAtom } from "./state";
 import { AnalysisView } from "./views/analysis";
 import { BacktestView } from "./views/backtest";
+import { ScanProgressBar } from "./views/common";
 import { NewsView } from "./views/news";
 import { OpportunitiesView } from "./views/opportunities";
 import { OverviewView } from "./views/overview";
@@ -135,6 +136,7 @@ export default function RadarTerminal() {
       </nav>
 
       <main className="flex-1 p-2">
+        {scan.data && <ScanProgressBar scan={scan.data} />}
         {view === "overview" && <OverviewView />}
         {view === "signals" && <SignalsView />}
         {view === "trades" && <TradesView />}

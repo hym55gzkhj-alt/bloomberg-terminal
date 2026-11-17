@@ -1,4 +1,4 @@
-import { kvGet, kvSet } from "./cache";
+import { hashGet, hashSetMany } from "./cache";
 import { DEFAULT_CONFIG, serverWeights } from "./config";
 import {
   type SeriesCtx,
@@ -132,29 +132,27 @@ export async function collectNews(
   return { news: dedupeNews(ok.flatMap((s) => s.value)), sources };
 }
 
-async function updateHistory(
-  ticker: string,
-  entry: SignalHistoryEntry
-): Promise<SignalHistoryEntry[]> {
-  const key = `history:${ticker}`;
-  const hist = (await kvGet<SignalHistoryEntry[]>(key)) ?? [];
-  const last = hist[hist.length - 1];
-  if (!last || last.category !== entry.category) {
-    hist.push(entry);
-    await kvSet(key, hist.slice(-200));
-  }
-  return hist;
+/** Category changes per ticker, stored in one Redis hash (written only on a change). */
+export async function getSignalHistory(ticker: string): Promise<SignalHistoryEntry[]> {
+  return (await hashGet<SignalHistoryEntry[]>("history", ticker)) ?? [];
 }
 
-export async function getSignalHistory(ticker: string): Promise<SignalHistoryEntry[]> {
-  return (await kvGet<SignalHistoryEntry[]>(`history:${ticker}`)) ?? [];
+async function appendHistory(ticker: string, entry: SignalHistoryEntry): Promise<void> {
+  const hist = await getSignalHistory(ticker);
+  const last = hist[hist.length - 1];
+  if (last && last.category === entry.category) return;
+  hist.push(entry);
+  await hashSetMany("history", { [ticker]: hist.slice(-100) });
 }
 
 export async function analyzeEntry(
   entry: UniverseEntry,
   opts: {
     weights?: Weights;
+    /** write a history entry when the category changed (scan only) */
     recordHistory?: boolean;
+    /** previously stored result (for the detection timestamp) */
+    previous?: { category: string; detectedAt: number | null } | null;
     realtimeQuote?: boolean;
     /** unix ms after which slow Finnhub calls are no longer awaited */
     deadline?: number;
@@ -267,18 +265,17 @@ export async function analyzeEntry(
 
   const now = Date.now();
   let detectedAt: number | null = null;
-  if (opts.recordHistory) {
-    const h = await updateHistory(entry.ticker, {
+  const prev = opts.previous;
+  if (prev && prev.category === combined.category && prev.detectedAt) {
+    detectedAt = prev.detectedAt;
+  } else if (opts.recordHistory) {
+    detectedAt = now;
+    await appendHistory(entry.ticker, {
       category: combined.category,
       score: combined.score,
       detectedAt: now,
       price: quote.price,
     });
-    detectedAt = h[h.length - 1]?.detectedAt ?? now;
-  } else {
-    const h = await getSignalHistory(entry.ticker);
-    const last = h[h.length - 1];
-    detectedAt = last && last.category === combined.category ? last.detectedAt : null;
   }
 
   const analysis: StockAnalysis = {

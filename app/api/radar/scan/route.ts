@@ -1,6 +1,6 @@
 import { drainPending } from "@/lib/radar/analyze";
 import { jsonError, jsonOk } from "@/lib/radar/http-response";
-import { scanUniverse } from "@/lib/radar/scan";
+import { scanUniverse, scanWork } from "@/lib/radar/scan";
 
 import { after } from "next/server";
 
@@ -11,9 +11,11 @@ export const maxDuration = 300;
 export async function GET() {
   // keep rate-limited background requests alive after the response (fills the cache)
   after(drainPending);
+  // keep the incremental background scan alive after the response
+  after(scanWork);
   try {
     const scan = await scanUniverse();
-    if (scan.results.length === 0) {
+    if (scan.results.length === 0 && scan.progress.pending === 0) {
       return jsonError(
         new Error(
           `Keine Marktdaten verfügbar. ${scan.errors
