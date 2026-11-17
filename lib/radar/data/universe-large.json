@@ -1,6 +1,7 @@
 {
   "generatedAt": "2026-11-17",
   "source": "Wikipedia (S&P 500, Nasdaq-100, DAX, Euro Stoxx 50) – verified against Yahoo Finance",
+  "mediumRule": "all DAX / Euro Stoxx 50 members + the 4 most traded US stocks per sector (avg daily traded value, 3 months)",
   "entries": [
     {
       "ticker": "A",
@@ -13,7 +14,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 383214086
     },
     {
       "ticker": "AAPL",
@@ -27,7 +29,9 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US0378331005",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 14347233648,
+      "medium": true
     },
     {
       "ticker": "ABBV",
@@ -40,7 +44,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1310154709
     },
     {
       "ticker": "ABI.BR",
@@ -53,7 +58,9 @@
       "sectorEtf": "XLP",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Brussels"
+      "exchange": "Brussels",
+      "adv": 124231804,
+      "medium": true
     },
     {
       "ticker": "ABNB",
@@ -67,7 +74,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US0090661010",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 804347614
     },
     {
       "ticker": "ABT",
@@ -80,7 +88,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 937259258
     },
     {
       "ticker": "ACGL",
@@ -93,7 +102,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 285049252
     },
     {
       "ticker": "ACN",
@@ -106,7 +116,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1279683063
     },
     {
       "ticker": "AD.AS",
@@ -119,7 +130,9 @@
       "sectorEtf": "XLP",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Amsterdam"
+      "exchange": "Amsterdam",
+      "adv": 77354978,
+      "medium": true
     },
     {
       "ticker": "ADBE",
@@ -133,7 +146,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US00724F1012",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 1163132444
     },
     {
       "ticker": "ADI",
@@ -147,7 +161,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US0326541051",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 1521181697
     },
     {
       "ticker": "ADM",
@@ -160,7 +175,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 279157124
     },
     {
       "ticker": "ADP",
@@ -174,7 +190,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US0530151036",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 615223674
     },
     {
       "ticker": "ADS.DE",
@@ -187,7 +204,9 @@
       "sectorEtf": "XLY",
       "indices": ["DAX", "Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 85595035,
+      "medium": true
     },
     {
       "ticker": "ADSK",
@@ -201,7 +220,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US0527691069",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 489093521
     },
     {
       "ticker": "ADYEN.AS",
@@ -214,7 +234,9 @@
       "sectorEtf": "XLF",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Amsterdam"
+      "exchange": "Amsterdam",
+      "adv": 118240018,
+      "medium": true
     },
     {
       "ticker": "AEE",
@@ -227,7 +249,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 188415865
     },
     {
       "ticker": "AEP",
@@ -241,7 +264,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US0255371017",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 470633932
     },
     {
       "ticker": "AES",
@@ -254,7 +278,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 128494298
     },
     {
       "ticker": "AFL",
@@ -267,7 +292,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 229066705
     },
     {
       "ticker": "AI.PA",
@@ -280,7 +306,9 @@
       "sectorEtf": "XLB",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Paris"
+      "exchange": "Paris",
+      "adv": 146382085,
+      "medium": true
     },
     {
       "ticker": "AIG",
@@ -293,7 +321,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 324292249
     },
     {
       "ticker": "AIR.PA",
@@ -306,7 +335,9 @@
       "sectorEtf": "XLI",
       "indices": ["DAX", "Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Paris"
+      "exchange": "Paris",
+      "adv": 202358292,
+      "medium": true
     },
     {
       "ticker": "AIZ",
@@ -319,7 +350,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 107459067
     },
     {
       "ticker": "AJG",
@@ -332,7 +364,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 397539337
     },
     {
       "ticker": "AKAM",
@@ -345,7 +378,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 537119559
     },
     {
       "ticker": "ALAB",
@@ -359,7 +393,8 @@
       "isin": "US04626A1034",
       "indices": ["Nasdaq-100"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 1214149237
     },
     {
       "ticker": "ALB",
@@ -372,7 +407,8 @@
       "sectorEtf": "XLB",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 260707083
     },
     {
       "ticker": "ALGN",
@@ -385,7 +421,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 154548619
     },
     {
       "ticker": "ALL",
@@ -398,7 +435,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 461612537
     },
     {
       "ticker": "ALLE",
@@ -411,7 +449,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 193269653
     },
     {
       "ticker": "ALNY",
@@ -425,7 +464,8 @@
       "isin": "US02043Q1076",
       "indices": ["Nasdaq-100"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 424044322
     },
     {
       "ticker": "ALV.DE",
@@ -438,7 +478,9 @@
       "sectorEtf": "XLF",
       "indices": ["DAX", "Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 213364448,
+      "medium": true
     },
     {
       "ticker": "AMAT",
@@ -452,7 +494,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US0382221051",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 3085238780
     },
     {
       "ticker": "AMCR",
@@ -465,7 +508,8 @@
       "sectorEtf": "XLB",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 153928218
     },
     {
       "ticker": "AMD",
@@ -479,7 +523,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US0079031078",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 13291592696
     },
     {
       "ticker": "AME",
@@ -492,7 +537,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 356617747
     },
     {
       "ticker": "AMGN",
@@ -506,7 +552,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US0311621009",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 1180938687
     },
     {
       "ticker": "AMP",
@@ -519,7 +566,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 291807753
     },
     {
       "ticker": "AMT",
@@ -532,7 +580,9 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 501385831,
+      "medium": true
     },
     {
       "ticker": "AMZN",
@@ -546,7 +596,9 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US0231351067",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 10043490535,
+      "medium": true
     },
     {
       "ticker": "ANET",
@@ -559,7 +611,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1197004763
     },
     {
       "ticker": "AON",
@@ -572,7 +625,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 505674919
     },
     {
       "ticker": "AOS",
@@ -585,7 +639,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 92929407
     },
     {
       "ticker": "APA",
@@ -598,7 +653,8 @@
       "sectorEtf": "XLE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 256835832
     },
     {
       "ticker": "APD",
@@ -611,7 +667,8 @@
       "sectorEtf": "XLB",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 317451405
     },
     {
       "ticker": "APH",
@@ -624,7 +681,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1032277728
     },
     {
       "ticker": "APO",
@@ -637,7 +695,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 393599487
     },
     {
       "ticker": "APP",
@@ -651,7 +710,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US03831W1080",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 1596893417
     },
     {
       "ticker": "APTV",
@@ -664,7 +724,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 164796307
     },
     {
       "ticker": "ARE",
@@ -677,7 +738,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 104491914
     },
     {
       "ticker": "ARES",
@@ -690,7 +752,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 277064176
     },
     {
       "ticker": "ARGX.BR",
@@ -703,7 +766,9 @@
       "sectorEtf": "XLV",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Brussels"
+      "exchange": "Brussels",
+      "adv": 73933235,
+      "medium": true
     },
     {
       "ticker": "ARM",
@@ -717,7 +782,8 @@
       "isin": "US0420682058",
       "indices": ["Nasdaq-100"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 1294093290
     },
     {
       "ticker": "ASML",
@@ -731,7 +797,8 @@
       "isin": "USN070592100",
       "indices": ["Nasdaq-100"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 2430509695
     },
     {
       "ticker": "ATO",
@@ -744,7 +811,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 167838596
     },
     {
       "ticker": "AVGO",
@@ -758,7 +826,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US11135F1012",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 8819797466
     },
     {
       "ticker": "AVY",
@@ -771,7 +840,8 @@
       "sectorEtf": "XLB",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 142367914
     },
     {
       "ticker": "AWK",
@@ -784,7 +854,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 274060952
     },
     {
       "ticker": "AXON",
@@ -798,7 +869,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US05464C1018",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 491605708
     },
     {
       "ticker": "AXP",
@@ -811,7 +883,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 938266549
     },
     {
       "ticker": "AZO",
@@ -824,7 +897,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 796524362
     },
     {
       "ticker": "BA",
@@ -837,7 +911,9 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1533530041,
+      "medium": true
     },
     {
       "ticker": "BAC",
@@ -850,7 +926,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 2055731277
     },
     {
       "ticker": "BALL",
@@ -863,7 +940,8 @@
       "sectorEtf": "XLB",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 132852506
     },
     {
       "ticker": "BAS.DE",
@@ -876,7 +954,9 @@
       "sectorEtf": "XLB",
       "indices": ["DAX", "Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 92983507,
+      "medium": true
     },
     {
       "ticker": "BAX",
@@ -889,7 +969,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 157034732
     },
     {
       "ticker": "BAYN.DE",
@@ -902,7 +983,9 @@
       "sectorEtf": "XLV",
       "indices": ["DAX", "Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 114720050,
+      "medium": true
     },
     {
       "ticker": "BBVA.MC",
@@ -915,7 +998,9 @@
       "sectorEtf": "XLF",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "MCE"
+      "exchange": "MCE",
+      "adv": 177376609,
+      "medium": true
     },
     {
       "ticker": "BBY",
@@ -928,7 +1013,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 307618661
     },
     {
       "ticker": "BDX",
@@ -941,7 +1027,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 346585142
     },
     {
       "ticker": "BE",
@@ -954,7 +1041,9 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 3721130534,
+      "medium": true
     },
     {
       "ticker": "BEI.DE",
@@ -967,7 +1056,9 @@
       "sectorEtf": "XLP",
       "indices": ["DAX"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 26189704,
+      "medium": true
     },
     {
       "ticker": "BEN",
@@ -980,7 +1071,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 126662705
     },
     {
       "ticker": "BF.B",
@@ -993,7 +1085,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 69482118
     },
     {
       "ticker": "BG",
@@ -1006,7 +1099,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 190252732
     },
     {
       "ticker": "BIIB",
@@ -1019,7 +1113,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 250600584
     },
     {
       "ticker": "BKNG",
@@ -1033,7 +1128,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US09857L1089",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 1237742532
     },
     {
       "ticker": "BKR",
@@ -1047,7 +1143,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US05722G1004",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 448425753
     },
     {
       "ticker": "BLK",
@@ -1060,7 +1157,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 689786256
     },
     {
       "ticker": "BMW.DE",
@@ -1073,7 +1171,9 @@
       "sectorEtf": "XLY",
       "indices": ["DAX", "Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 90441757,
+      "medium": true
     },
     {
       "ticker": "BMY",
@@ -1086,7 +1186,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 685441972
     },
     {
       "ticker": "BN.PA",
@@ -1099,7 +1200,9 @@
       "sectorEtf": "XLP",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Paris"
+      "exchange": "Paris",
+      "adv": 85570924,
+      "medium": true
     },
     {
       "ticker": "BNP.PA",
@@ -1112,7 +1215,9 @@
       "sectorEtf": "XLF",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Paris"
+      "exchange": "Paris",
+      "adv": 217652813,
+      "medium": true
     },
     {
       "ticker": "BNR.DE",
@@ -1125,7 +1230,9 @@
       "sectorEtf": "XLI",
       "indices": ["DAX"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 15423189,
+      "medium": true
     },
     {
       "ticker": "BNY",
@@ -1138,7 +1245,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 520394465
     },
     {
       "ticker": "BR",
@@ -1151,7 +1259,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 181258504
     },
     {
       "ticker": "BRK.B",
@@ -1164,7 +1273,9 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 2437957259,
+      "medium": true
     },
     {
       "ticker": "BRO",
@@ -1177,7 +1288,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 155192788
     },
     {
       "ticker": "BSX",
@@ -1190,7 +1302,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 874542397
     },
     {
       "ticker": "BX",
@@ -1203,7 +1316,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 559837667
     },
     {
       "ticker": "BXP",
@@ -1216,7 +1330,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 87241729
     },
     {
       "ticker": "C",
@@ -1229,7 +1344,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1210439661
     },
     {
       "ticker": "CAH",
@@ -1242,7 +1358,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 411622741
     },
     {
       "ticker": "CARR",
@@ -1255,7 +1372,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 349404341
     },
     {
       "ticker": "CASY",
@@ -1268,7 +1386,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 356262582
     },
     {
       "ticker": "CAT",
@@ -1281,7 +1400,9 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 2125060664,
+      "medium": true
     },
     {
       "ticker": "CB",
@@ -1294,7 +1415,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 554551182
     },
     {
       "ticker": "CBK.DE",
@@ -1307,7 +1429,9 @@
       "sectorEtf": "XLF",
       "indices": ["DAX"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 93546783,
+      "medium": true
     },
     {
       "ticker": "CBRE",
@@ -1320,7 +1444,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 288557405
     },
     {
       "ticker": "CCEP",
@@ -1334,7 +1459,8 @@
       "isin": "GB00BDCPN049",
       "indices": ["Nasdaq-100"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 185832891
     },
     {
       "ticker": "CCI",
@@ -1347,7 +1473,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 334245060
     },
     {
       "ticker": "CCL",
@@ -1360,7 +1487,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 548893346
     },
     {
       "ticker": "CDNS",
@@ -1374,7 +1502,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US1273871087",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 761139016
     },
     {
       "ticker": "CDW",
@@ -1387,7 +1516,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 242442585
     },
     {
       "ticker": "CEG",
@@ -1401,7 +1531,9 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US21037T1097",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 953940091,
+      "medium": true
     },
     {
       "ticker": "CF",
@@ -1414,7 +1546,8 @@
       "sectorEtf": "XLB",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 300755021
     },
     {
       "ticker": "CFG",
@@ -1427,7 +1560,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 266489610
     },
     {
       "ticker": "CHD",
@@ -1440,7 +1574,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 195314742
     },
     {
       "ticker": "CHRW",
@@ -1453,7 +1588,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 248383430
     },
     {
       "ticker": "CHTR",
@@ -1466,7 +1602,8 @@
       "sectorEtf": "XLC",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 387873558
     },
     {
       "ticker": "CI",
@@ -1479,7 +1616,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 450622933
     },
     {
       "ticker": "CIEN",
@@ -1492,7 +1630,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 985277802
     },
     {
       "ticker": "CINF",
@@ -1505,7 +1644,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 108655371
     },
     {
       "ticker": "CL",
@@ -1518,7 +1658,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 455411519
     },
     {
       "ticker": "CLX",
@@ -1531,7 +1672,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 291460475
     },
     {
       "ticker": "CMCSA",
@@ -1545,7 +1687,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US20030N1019",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 683515652
     },
     {
       "ticker": "CME",
@@ -1558,7 +1701,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 552245257
     },
     {
       "ticker": "CMG",
@@ -1571,7 +1715,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 586593704
     },
     {
       "ticker": "CMI",
@@ -1584,7 +1729,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 641677366
     },
     {
       "ticker": "CMS",
@@ -1597,7 +1743,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 257288103
     },
     {
       "ticker": "CNC",
@@ -1610,7 +1757,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 329235470
     },
     {
       "ticker": "CNP",
@@ -1623,7 +1771,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 289498641
     },
     {
       "ticker": "COF",
@@ -1636,7 +1785,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 784786871
     },
     {
       "ticker": "COHR",
@@ -1649,7 +1799,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1982486496
     },
     {
       "ticker": "COIN",
@@ -1662,7 +1813,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 1611444209
     },
     {
       "ticker": "CON.DE",
@@ -1675,7 +1827,9 @@
       "sectorEtf": "XLY",
       "indices": ["DAX"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 29557861,
+      "medium": true
     },
     {
       "ticker": "COO",
@@ -1688,7 +1842,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 205293303
     },
     {
       "ticker": "COP",
@@ -1701,7 +1856,8 @@
       "sectorEtf": "XLE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 918627296
     },
     {
       "ticker": "COR",
@@ -1714,7 +1870,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 415139136
     },
     {
       "ticker": "COST",
@@ -1728,7 +1885,9 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US22160K1051",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 2177373942,
+      "medium": true
     },
     {
       "ticker": "CPAY",
@@ -1741,7 +1900,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 197467308
     },
     {
       "ticker": "CPRT",
@@ -1755,7 +1915,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US2172041061",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 320349061
     },
     {
       "ticker": "CPT",
@@ -1768,7 +1929,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 99720336
     },
     {
       "ticker": "CRH",
@@ -1781,7 +1943,8 @@
       "sectorEtf": "XLB",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 460554962
     },
     {
       "ticker": "CRL",
@@ -1794,7 +1957,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 324595586
     },
     {
       "ticker": "CRM",
@@ -1807,7 +1971,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 2590195848
     },
     {
       "ticker": "CRWD",
@@ -1821,7 +1986,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US22788C1053",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 2357586140
     },
     {
       "ticker": "CRWV",
@@ -1835,7 +2001,8 @@
       "isin": "US21873S1087",
       "indices": ["Nasdaq-100"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 3076913521
     },
     {
       "ticker": "CS.PA",
@@ -1848,7 +2015,9 @@
       "sectorEtf": "XLF",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Paris"
+      "exchange": "Paris",
+      "adv": 133065219,
+      "medium": true
     },
     {
       "ticker": "CSCO",
@@ -1862,7 +2031,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US17275R1023",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 1912683969
     },
     {
       "ticker": "CSGP",
@@ -1875,7 +2045,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 190414152
     },
     {
       "ticker": "CSX",
@@ -1889,7 +2060,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US1264081035",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 528624084
     },
     {
       "ticker": "CTAS",
@@ -1903,7 +2075,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US1729081059",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 395759760
     },
     {
       "ticker": "CTSH",
@@ -1916,7 +2089,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 392292709
     },
     {
       "ticker": "CVNA",
@@ -1929,7 +2103,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 600281485
     },
     {
       "ticker": "CVS",
@@ -1942,7 +2117,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 807469884
     },
     {
       "ticker": "CVX",
@@ -1955,7 +2131,9 @@
       "sectorEtf": "XLE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1798207802,
+      "medium": true
     },
     {
       "ticker": "D",
@@ -1968,7 +2146,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 297935368
     },
     {
       "ticker": "DAL",
@@ -1981,7 +2160,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 542237716
     },
     {
       "ticker": "DASH",
@@ -1995,7 +2175,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US25809K1051",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 880353356
     },
     {
       "ticker": "DB1.DE",
@@ -2008,7 +2189,9 @@
       "sectorEtf": "XLF",
       "indices": ["DAX", "Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 100728923,
+      "medium": true
     },
     {
       "ticker": "DBK.DE",
@@ -2021,7 +2204,9 @@
       "sectorEtf": "XLF",
       "indices": ["DAX", "Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 168083951,
+      "medium": true
     },
     {
       "ticker": "DD",
@@ -2034,7 +2219,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 148836459
     },
     {
       "ticker": "DDOG",
@@ -2048,7 +2234,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US23804L1035",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 860169555
     },
     {
       "ticker": "DE",
@@ -2061,7 +2248,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 836750335
     },
     {
       "ticker": "DECK",
@@ -2074,7 +2262,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 273996279
     },
     {
       "ticker": "DELL",
@@ -2087,7 +2276,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 3872950869
     },
     {
       "ticker": "DG",
@@ -2100,7 +2290,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 300773709
     },
     {
       "ticker": "DG.PA",
@@ -2113,7 +2304,9 @@
       "sectorEtf": "XLI",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Paris"
+      "exchange": "Paris",
+      "adv": 100835822,
+      "medium": true
     },
     {
       "ticker": "DGX",
@@ -2126,7 +2319,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 245506997
     },
     {
       "ticker": "DHI",
@@ -2139,7 +2333,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 412458598
     },
     {
       "ticker": "DHL.DE",
@@ -2152,7 +2347,9 @@
       "sectorEtf": "XLI",
       "indices": ["DAX", "Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 85117737,
+      "medium": true
     },
     {
       "ticker": "DHR",
@@ -2165,7 +2362,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 888231099
     },
     {
       "ticker": "DIS",
@@ -2178,7 +2376,8 @@
       "sectorEtf": "XLC",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 919631967
     },
     {
       "ticker": "DLR",
@@ -2191,7 +2390,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 398559196
     },
     {
       "ticker": "DLTR",
@@ -2204,7 +2404,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 302989015
     },
     {
       "ticker": "DOC",
@@ -2217,7 +2418,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 109645051
     },
     {
       "ticker": "DOV",
@@ -2230,7 +2432,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 246280392
     },
     {
       "ticker": "DOW",
@@ -2243,7 +2446,8 @@
       "sectorEtf": "XLB",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 261143421
     },
     {
       "ticker": "DPZ",
@@ -2256,7 +2460,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 257603851
     },
     {
       "ticker": "DRI",
@@ -2269,7 +2474,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 228540023
     },
     {
       "ticker": "DTE",
@@ -2282,7 +2488,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 200107774
     },
     {
       "ticker": "DTE.DE",
@@ -2295,7 +2502,9 @@
       "sectorEtf": "XLC",
       "indices": ["DAX", "Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 174882962,
+      "medium": true
     },
     {
       "ticker": "DTG.DE",
@@ -2308,7 +2517,9 @@
       "sectorEtf": "XLY",
       "indices": ["DAX"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 48420213,
+      "medium": true
     },
     {
       "ticker": "DUK",
@@ -2321,7 +2532,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 506251765
     },
     {
       "ticker": "DVA",
@@ -2334,7 +2546,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 129193651
     },
     {
       "ticker": "DVN",
@@ -2347,7 +2560,8 @@
       "sectorEtf": "XLE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 530333026
     },
     {
       "ticker": "DXCM",
@@ -2361,7 +2575,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US2521311074",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 358842684
     },
     {
       "ticker": "EBAY",
@@ -2374,7 +2589,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 492597970
     },
     {
       "ticker": "ECHO",
@@ -2387,7 +2603,8 @@
       "sectorEtf": "XLC",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 350294978
     },
     {
       "ticker": "ECL",
@@ -2400,7 +2617,8 @@
       "sectorEtf": "XLB",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 412016660
     },
     {
       "ticker": "ED",
@@ -2413,7 +2631,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 260509769
     },
     {
       "ticker": "EFX",
@@ -2426,7 +2645,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 285344440
     },
     {
       "ticker": "EG",
@@ -2439,7 +2659,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 153236920
     },
     {
       "ticker": "EIX",
@@ -2452,7 +2673,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 294149084
     },
     {
       "ticker": "EL",
@@ -2465,7 +2687,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 359446395
     },
     {
       "ticker": "EL.PA",
@@ -2478,7 +2701,9 @@
       "sectorEtf": "XLV",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Paris"
+      "exchange": "Paris",
+      "adv": 133784433,
+      "medium": true
     },
     {
       "ticker": "ELV",
@@ -2491,7 +2716,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 512992220
     },
     {
       "ticker": "EME",
@@ -2504,7 +2730,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 299051372
     },
     {
       "ticker": "EMR",
@@ -2517,7 +2744,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 412421565
     },
     {
       "ticker": "ENEL.MI",
@@ -2530,7 +2758,9 @@
       "sectorEtf": "XLU",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Milan"
+      "exchange": "Milan",
+      "adv": 161461110,
+      "medium": true
     },
     {
       "ticker": "ENGI.PA",
@@ -2543,7 +2773,9 @@
       "sectorEtf": "XLU",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Paris"
+      "exchange": "Paris",
+      "adv": 116183904,
+      "medium": true
     },
     {
       "ticker": "ENI.MI",
@@ -2556,7 +2788,9 @@
       "sectorEtf": "XLE",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Milan"
+      "exchange": "Milan",
+      "adv": 194504523,
+      "medium": true
     },
     {
       "ticker": "ENR.DE",
@@ -2569,7 +2803,9 @@
       "sectorEtf": "XLE",
       "indices": ["DAX", "Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 299729036,
+      "medium": true
     },
     {
       "ticker": "EOAN.DE",
@@ -2582,7 +2818,9 @@
       "sectorEtf": "XLU",
       "indices": ["DAX"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 68141659,
+      "medium": true
     },
     {
       "ticker": "EOG",
@@ -2595,7 +2833,8 @@
       "sectorEtf": "XLE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 462388773
     },
     {
       "ticker": "EQIX",
@@ -2608,7 +2847,9 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 581324785,
+      "medium": true
     },
     {
       "ticker": "EQT",
@@ -2621,7 +2862,8 @@
       "sectorEtf": "XLE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 414858914
     },
     {
       "ticker": "ERIE",
@@ -2634,7 +2876,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 57426914
     },
     {
       "ticker": "ES",
@@ -2647,7 +2890,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 183526117
     },
     {
       "ticker": "ESS",
@@ -2660,7 +2904,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 149661451
     },
     {
       "ticker": "ETN",
@@ -2673,7 +2918,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 955320348
     },
     {
       "ticker": "ETR",
@@ -2686,7 +2932,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 307265867
     },
     {
       "ticker": "EVRG",
@@ -2699,7 +2946,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 188659954
     },
     {
       "ticker": "EW",
@@ -2712,7 +2960,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 353315397
     },
     {
       "ticker": "EXC",
@@ -2726,7 +2975,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US30161N1019",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 342901380
     },
     {
       "ticker": "EXE",
@@ -2739,7 +2989,8 @@
       "sectorEtf": "XLE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 283238512
     },
     {
       "ticker": "EXPD",
@@ -2752,7 +3003,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 213370869
     },
     {
       "ticker": "EXPE",
@@ -2765,7 +3017,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 554144324
     },
     {
       "ticker": "EXR",
@@ -2778,7 +3031,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 190249249
     },
     {
       "ticker": "F",
@@ -2791,7 +3045,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 562368461
     },
     {
       "ticker": "FANG",
@@ -2805,7 +3060,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US25278X1090",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 478670756
     },
     {
       "ticker": "FAST",
@@ -2819,7 +3075,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US3119001044",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 364253328
     },
     {
       "ticker": "FCX",
@@ -2832,7 +3089,9 @@
       "sectorEtf": "XLB",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 879872114,
+      "medium": true
     },
     {
       "ticker": "FDS",
@@ -2845,7 +3104,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 237915364
     },
     {
       "ticker": "FDX",
@@ -2858,7 +3118,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 450078621
     },
     {
       "ticker": "FDXF",
@@ -2871,7 +3132,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 179634812
     },
     {
       "ticker": "FE",
@@ -2884,7 +3146,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 202829441
     },
     {
       "ticker": "FER",
@@ -2898,7 +3161,8 @@
       "isin": "NL0015001FS8",
       "indices": ["Nasdaq-100"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 120149128
     },
     {
       "ticker": "FERG",
@@ -2911,7 +3175,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 330092475
     },
     {
       "ticker": "FFIV",
@@ -2924,7 +3189,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 282817684
     },
     {
       "ticker": "FICO",
@@ -2937,7 +3203,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 594363197
     },
     {
       "ticker": "FIS",
@@ -2950,7 +3217,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 253495953
     },
     {
       "ticker": "FISV",
@@ -2963,7 +3231,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 364721814
     },
     {
       "ticker": "FITB",
@@ -2976,7 +3245,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 332068091
     },
     {
       "ticker": "FIX",
@@ -2989,7 +3259,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 690420223
     },
     {
       "ticker": "FLEX",
@@ -3002,7 +3273,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 432458377
     },
     {
       "ticker": "FME.DE",
@@ -3015,7 +3287,9 @@
       "sectorEtf": "XLV",
       "indices": ["DAX"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 36563822,
+      "medium": true
     },
     {
       "ticker": "FOXA",
@@ -3028,7 +3302,8 @@
       "sectorEtf": "XLC",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 408594364
     },
     {
       "ticker": "FRE.DE",
@@ -3041,7 +3316,9 @@
       "sectorEtf": "XLV",
       "indices": ["DAX"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 47544950,
+      "medium": true
     },
     {
       "ticker": "FRT",
@@ -3054,7 +3331,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 97662288
     },
     {
       "ticker": "FSLR",
@@ -3067,7 +3345,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 471134849
     },
     {
       "ticker": "FTNT",
@@ -3081,7 +3360,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US34959E1091",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 751059679
     },
     {
       "ticker": "FTV",
@@ -3094,7 +3374,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 151240211
     },
     {
       "ticker": "G1A.DE",
@@ -3107,7 +3388,9 @@
       "sectorEtf": "SPY",
       "indices": ["DAX"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 25681943,
+      "medium": true
     },
     {
       "ticker": "G24.DE",
@@ -3120,7 +3403,9 @@
       "sectorEtf": "SPY",
       "indices": ["DAX"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 33594122,
+      "medium": true
     },
     {
       "ticker": "GD",
@@ -3133,7 +3418,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 431274843
     },
     {
       "ticker": "GDDY",
@@ -3146,7 +3432,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 198071769
     },
     {
       "ticker": "GE",
@@ -3159,7 +3446,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1451154406
     },
     {
       "ticker": "GEHC",
@@ -3173,7 +3461,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US36266G1076",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 262664596
     },
     {
       "ticker": "GEN",
@@ -3186,7 +3475,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 224359762
     },
     {
       "ticker": "GEV",
@@ -3199,7 +3489,9 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 2581917403,
+      "medium": true
     },
     {
       "ticker": "GILD",
@@ -3213,7 +3505,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US3755581036",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 927460038
     },
     {
       "ticker": "GIS",
@@ -3226,7 +3519,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 333456074
     },
     {
       "ticker": "GL",
@@ -3239,7 +3533,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 82989098
     },
     {
       "ticker": "GLW",
@@ -3252,7 +3547,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1270796903
     },
     {
       "ticker": "GM",
@@ -3265,7 +3561,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 612224287
     },
     {
       "ticker": "GNRC",
@@ -3278,7 +3575,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 247756930
     },
     {
       "ticker": "GOOGL",
@@ -3292,7 +3590,9 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US02079K3059",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 9662382714,
+      "medium": true
     },
     {
       "ticker": "GPC",
@@ -3305,7 +3605,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 128009232
     },
     {
       "ticker": "GPN",
@@ -3318,7 +3619,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 253101881
     },
     {
       "ticker": "GRMN",
@@ -3331,7 +3633,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 244913258
     },
     {
       "ticker": "GS",
@@ -3344,7 +3647,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 2014375926
     },
     {
       "ticker": "GWW",
@@ -3357,7 +3661,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 353041232
     },
     {
       "ticker": "HAL",
@@ -3370,7 +3675,8 @@
       "sectorEtf": "XLE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 352034745
     },
     {
       "ticker": "HAS",
@@ -3383,7 +3689,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 200044810
     },
     {
       "ticker": "HBAN",
@@ -3396,7 +3703,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 387683305
     },
     {
       "ticker": "HCA",
@@ -3409,7 +3717,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 604343689
     },
     {
       "ticker": "HD",
@@ -3422,7 +3731,9 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1499897498,
+      "medium": true
     },
     {
       "ticker": "HEI.DE",
@@ -3435,7 +3746,9 @@
       "sectorEtf": "XLI",
       "indices": ["DAX"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 71551224,
+      "medium": true
     },
     {
       "ticker": "HEN3.DE",
@@ -3448,7 +3761,9 @@
       "sectorEtf": "XLP",
       "indices": ["DAX"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 28503132,
+      "medium": true
     },
     {
       "ticker": "HIG",
@@ -3461,7 +3776,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 227706016
     },
     {
       "ticker": "HII",
@@ -3474,7 +3790,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 145467117
     },
     {
       "ticker": "HLT",
@@ -3487,7 +3804,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 585258863
     },
     {
       "ticker": "HNR1.DE",
@@ -3500,7 +3818,9 @@
       "sectorEtf": "XLF",
       "indices": ["DAX"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 37383145,
+      "medium": true
     },
     {
       "ticker": "HON",
@@ -3514,7 +3834,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US4385162056",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 590723220
     },
     {
       "ticker": "HONA",
@@ -3528,7 +3849,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US43849R1059",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 565098877
     },
     {
       "ticker": "HOOD",
@@ -3541,7 +3863,9 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 2191084030,
+      "medium": true
     },
     {
       "ticker": "HPE",
@@ -3554,7 +3878,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1165222706
     },
     {
       "ticker": "HPQ",
@@ -3567,7 +3892,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 445898578
     },
     {
       "ticker": "HRL",
@@ -3580,7 +3906,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 113002324
     },
     {
       "ticker": "HSIC",
@@ -3593,7 +3920,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 110539481
     },
     {
       "ticker": "HST",
@@ -3606,7 +3934,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 198870866
     },
     {
       "ticker": "HSY",
@@ -3619,7 +3948,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 268266875
     },
     {
       "ticker": "HUBB",
@@ -3632,7 +3962,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 256586631
     },
     {
       "ticker": "HUM",
@@ -3645,7 +3976,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 558460282
     },
     {
       "ticker": "HWM",
@@ -3658,7 +3990,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 808141615
     },
     {
       "ticker": "IBE.MC",
@@ -3671,7 +4004,9 @@
       "sectorEtf": "XLU",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "MCE"
+      "exchange": "MCE",
+      "adv": 174907546,
+      "medium": true
     },
     {
       "ticker": "IBKR",
@@ -3684,7 +4019,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 368483704
     },
     {
       "ticker": "IBM",
@@ -3697,7 +4033,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1218002698
     },
     {
       "ticker": "ICE",
@@ -3710,7 +4047,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 509318397
     },
     {
       "ticker": "IDXX",
@@ -3724,7 +4062,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US45168D1046",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 322174853
     },
     {
       "ticker": "IEX",
@@ -3737,7 +4076,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 156020080
     },
     {
       "ticker": "IFF",
@@ -3750,7 +4090,8 @@
       "sectorEtf": "XLB",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 172345717
     },
     {
       "ticker": "IFX.DE",
@@ -3763,7 +4104,9 @@
       "sectorEtf": "XLK",
       "indices": ["DAX", "Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 228404992,
+      "medium": true
     },
     {
       "ticker": "ILMN",
@@ -3776,7 +4119,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 688273496
     },
     {
       "ticker": "INCY",
@@ -3789,7 +4133,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 193904014
     },
     {
       "ticker": "INGA.AS",
@@ -3802,7 +4147,9 @@
       "sectorEtf": "XLF",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Amsterdam"
+      "exchange": "Amsterdam",
+      "adv": 185345204,
+      "medium": true
     },
     {
       "ticker": "INTC",
@@ -3816,7 +4163,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US4581401001",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 10296295169
     },
     {
       "ticker": "INTU",
@@ -3830,7 +4178,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US4612021034",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 1149893550
     },
     {
       "ticker": "INVH",
@@ -3843,7 +4192,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 140959927
     },
     {
       "ticker": "IP",
@@ -3856,7 +4206,8 @@
       "sectorEtf": "XLB",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 181480236
     },
     {
       "ticker": "IQV",
@@ -3869,7 +4220,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 383993525
     },
     {
       "ticker": "IR",
@@ -3882,7 +4234,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 335881786
     },
     {
       "ticker": "IRM",
@@ -3895,7 +4248,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 177611264
     },
     {
       "ticker": "ISP.MI",
@@ -3908,7 +4262,9 @@
       "sectorEtf": "XLF",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Milan"
+      "exchange": "Milan",
+      "adv": 286546029,
+      "medium": true
     },
     {
       "ticker": "ISRG",
@@ -3922,7 +4278,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US46120E6023",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 970827218
     },
     {
       "ticker": "IT",
@@ -3935,7 +4292,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 213600674
     },
     {
       "ticker": "ITW",
@@ -3948,7 +4306,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 347769822
     },
     {
       "ticker": "ITX.MC",
@@ -3961,7 +4320,9 @@
       "sectorEtf": "XLY",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "MCE"
+      "exchange": "MCE",
+      "adv": 99849331,
+      "medium": true
     },
     {
       "ticker": "IVZ",
@@ -3974,7 +4335,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 142364000
     },
     {
       "ticker": "J",
@@ -3987,7 +4349,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 125716824
     },
     {
       "ticker": "JBHT",
@@ -4000,7 +4363,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 231295146
     },
     {
       "ticker": "JBL",
@@ -4013,7 +4377,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 362492383
     },
     {
       "ticker": "JCI",
@@ -4026,7 +4391,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 553655806
     },
     {
       "ticker": "JKHY",
@@ -4039,7 +4405,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 153452926
     },
     {
       "ticker": "JNJ",
@@ -4052,7 +4419,9 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1895650488,
+      "medium": true
     },
     {
       "ticker": "JPM",
@@ -4065,7 +4434,9 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 2440900971,
+      "medium": true
     },
     {
       "ticker": "KDP",
@@ -4079,7 +4450,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US49271V1008",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 494765955
     },
     {
       "ticker": "KEY",
@@ -4092,7 +4464,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 308478903
     },
     {
       "ticker": "KEYS",
@@ -4105,7 +4478,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 443789891
     },
     {
       "ticker": "KHC",
@@ -4118,7 +4492,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 412242396
     },
     {
       "ticker": "KIM",
@@ -4131,7 +4506,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 134944628
     },
     {
       "ticker": "KKR",
@@ -4144,7 +4520,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 438822561
     },
     {
       "ticker": "KLAC",
@@ -4158,7 +4535,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US4824801009",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 1878486476
     },
     {
       "ticker": "KMB",
@@ -4171,7 +4549,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 555410907
     },
     {
       "ticker": "KMI",
@@ -4184,7 +4563,8 @@
       "sectorEtf": "XLE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 417703362
     },
     {
       "ticker": "KO",
@@ -4197,7 +4577,9 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1504506542,
+      "medium": true
     },
     {
       "ticker": "KR",
@@ -4210,7 +4592,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 418450814
     },
     {
       "ticker": "L",
@@ -4223,7 +4606,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 87713770
     },
     {
       "ticker": "LDOS",
@@ -4236,7 +4620,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 150377730
     },
     {
       "ticker": "LEN",
@@ -4249,7 +4634,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 354406409
     },
     {
       "ticker": "LH",
@@ -4262,7 +4648,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 243691802
     },
     {
       "ticker": "LHX",
@@ -4275,7 +4662,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 436575347
     },
     {
       "ticker": "LII",
@@ -4288,7 +4676,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 208371122
     },
     {
       "ticker": "LIN",
@@ -4302,7 +4691,9 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "IE000S9YS762",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 1011819490,
+      "medium": true
     },
     {
       "ticker": "LITE",
@@ -4316,7 +4707,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US55024U1097",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 4344436736
     },
     {
       "ticker": "LLY",
@@ -4329,7 +4721,9 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 3241019085,
+      "medium": true
     },
     {
       "ticker": "LMT",
@@ -4342,7 +4736,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 727188724
     },
     {
       "ticker": "LNT",
@@ -4355,7 +4750,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 185822015
     },
     {
       "ticker": "LOW",
@@ -4368,7 +4764,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 681690782
     },
     {
       "ticker": "LRCX",
@@ -4382,7 +4779,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US5128073062",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 2766359739
     },
     {
       "ticker": "LULU",
@@ -4395,7 +4793,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 521283564
     },
     {
       "ticker": "LUV",
@@ -4408,7 +4807,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 246765953
     },
     {
       "ticker": "LVS",
@@ -4421,7 +4821,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 236019379
     },
     {
       "ticker": "LYB",
@@ -4434,7 +4835,8 @@
       "sectorEtf": "XLB",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 223013744
     },
     {
       "ticker": "LYV",
@@ -4447,7 +4849,8 @@
       "sectorEtf": "XLC",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 373092416
     },
     {
       "ticker": "MA",
@@ -4460,7 +4863,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1779466166
     },
     {
       "ticker": "MAA",
@@ -4473,7 +4877,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 125962235
     },
     {
       "ticker": "MAR",
@@ -4487,7 +4892,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US5719032022",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 575717676
     },
     {
       "ticker": "MAS",
@@ -4500,7 +4906,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 160492063
     },
     {
       "ticker": "MBG.DE",
@@ -4513,7 +4920,9 @@
       "sectorEtf": "XLY",
       "indices": ["DAX", "Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 101911687,
+      "medium": true
     },
     {
       "ticker": "MC.PA",
@@ -4526,7 +4935,9 @@
       "sectorEtf": "XLY",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Paris"
+      "exchange": "Paris",
+      "adv": 237428517,
+      "medium": true
     },
     {
       "ticker": "MCD",
@@ -4539,7 +4950,9 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1392864297,
+      "medium": true
     },
     {
       "ticker": "MCHP",
@@ -4553,7 +4966,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US5950171042",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 790061086
     },
     {
       "ticker": "MCK",
@@ -4566,7 +4980,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 749790791
     },
     {
       "ticker": "MCO",
@@ -4579,7 +4994,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 401469034
     },
     {
       "ticker": "MDLZ",
@@ -4593,7 +5009,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US6092071058",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 489343584
     },
     {
       "ticker": "MDT",
@@ -4606,7 +5023,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1495408608
     },
     {
       "ticker": "MELI",
@@ -4620,7 +5038,8 @@
       "isin": "US58733R1023",
       "indices": ["Nasdaq-100"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 1041366661
     },
     {
       "ticker": "MET",
@@ -4633,7 +5052,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 306577496
     },
     {
       "ticker": "META",
@@ -4647,7 +5067,9 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US30303M1027",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 13867434526,
+      "medium": true
     },
     {
       "ticker": "MGM",
@@ -4660,7 +5082,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 150210739
     },
     {
       "ticker": "MKC",
@@ -4673,7 +5096,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 172856311
     },
     {
       "ticker": "MLM",
@@ -4686,7 +5110,8 @@
       "sectorEtf": "XLB",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 420245222
     },
     {
       "ticker": "MMM",
@@ -4699,7 +5124,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 556265767
     },
     {
       "ticker": "MNST",
@@ -4713,7 +5139,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US61174X1090",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 444278616
     },
     {
       "ticker": "MO",
@@ -4726,7 +5153,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 584213684
     },
     {
       "ticker": "MOS",
@@ -4739,7 +5167,8 @@
       "sectorEtf": "XLB",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 203533491
     },
     {
       "ticker": "MPC",
@@ -4752,7 +5181,9 @@
       "sectorEtf": "XLE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1025812243,
+      "medium": true
     },
     {
       "ticker": "MPWR",
@@ -4766,7 +5197,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US6098391054",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 1061091586
     },
     {
       "ticker": "MRK",
@@ -4779,7 +5211,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1499946127
     },
     {
       "ticker": "MRK.DE",
@@ -4792,7 +5225,9 @@
       "sectorEtf": "XLV",
       "indices": ["DAX"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 38917317,
+      "medium": true
     },
     {
       "ticker": "MRNA",
@@ -4806,7 +5241,9 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US60770K1079",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 3955952855,
+      "medium": true
     },
     {
       "ticker": "MRSH",
@@ -4819,7 +5256,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 460935443
     },
     {
       "ticker": "MRVL",
@@ -4833,7 +5271,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US5738741041",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 5351038463
     },
     {
       "ticker": "MS",
@@ -4846,7 +5285,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1076352541
     },
     {
       "ticker": "MSCI",
@@ -4859,7 +5299,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 333851077
     },
     {
       "ticker": "MSFT",
@@ -4873,7 +5314,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US5949181045",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 11988125872
     },
     {
       "ticker": "MSI",
@@ -4886,7 +5328,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 480306238
     },
     {
       "ticker": "MSTR",
@@ -4900,7 +5343,8 @@
       "isin": "US5949724083",
       "indices": ["Nasdaq-100"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 3102529846
     },
     {
       "ticker": "MTB",
@@ -4913,7 +5357,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 222045425
     },
     {
       "ticker": "MTD",
@@ -4926,7 +5371,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 303549325
     },
     {
       "ticker": "MTX.DE",
@@ -4939,7 +5385,9 @@
       "sectorEtf": "XLI",
       "indices": ["DAX"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 45679033,
+      "medium": true
     },
     {
       "ticker": "MU",
@@ -4953,7 +5401,9 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US5951121038",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 25517273906,
+      "medium": true
     },
     {
       "ticker": "MUV2.DE",
@@ -4966,7 +5416,9 @@
       "sectorEtf": "XLF",
       "indices": ["DAX", "Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 144142621,
+      "medium": true
     },
     {
       "ticker": "NBIS",
@@ -4980,7 +5432,8 @@
       "isin": "NL0009805522",
       "indices": ["Nasdaq-100"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 3977821485
     },
     {
       "ticker": "NCLH",
@@ -4993,7 +5446,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 308552241
     },
     {
       "ticker": "NDA-FI.HE",
@@ -5006,7 +5460,9 @@
       "sectorEtf": "XLF",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Helsinki"
+      "exchange": "Helsinki",
+      "adv": 76582955,
+      "medium": true
     },
     {
       "ticker": "NDAQ",
@@ -5019,7 +5475,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 321163435
     },
     {
       "ticker": "NDSN",
@@ -5032,7 +5489,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 121376208
     },
     {
       "ticker": "NEE",
@@ -5045,7 +5503,9 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 999514431,
+      "medium": true
     },
     {
       "ticker": "NEM",
@@ -5058,7 +5518,9 @@
       "sectorEtf": "XLB",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 830962771,
+      "medium": true
     },
     {
       "ticker": "NFLX",
@@ -5072,7 +5534,9 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US64110L1061",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 2590124492,
+      "medium": true
     },
     {
       "ticker": "NI",
@@ -5085,7 +5549,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 234138700
     },
     {
       "ticker": "NKE",
@@ -5098,7 +5563,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1202974958
     },
     {
       "ticker": "NOC",
@@ -5111,7 +5577,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 482543882
     },
     {
       "ticker": "NOKIA.HE",
@@ -5124,7 +5591,9 @@
       "sectorEtf": "XLK",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Helsinki"
+      "exchange": "Helsinki",
+      "adv": 147232224,
+      "medium": true
     },
     {
       "ticker": "NOW",
@@ -5137,7 +5606,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 2014531129
     },
     {
       "ticker": "NRG",
@@ -5150,7 +5620,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 329306888
     },
     {
       "ticker": "NSC",
@@ -5163,7 +5634,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 339744318
     },
     {
       "ticker": "NTAP",
@@ -5176,7 +5648,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 467683641
     },
     {
       "ticker": "NTRS",
@@ -5189,7 +5662,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 190186072
     },
     {
       "ticker": "NUE",
@@ -5202,7 +5676,8 @@
       "sectorEtf": "XLB",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 353827785
     },
     {
       "ticker": "NVDA",
@@ -5216,7 +5691,9 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US67066G1040",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 30889823185,
+      "medium": true
     },
     {
       "ticker": "NVR",
@@ -5229,7 +5706,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 253572021
     },
     {
       "ticker": "NWSA",
@@ -5242,7 +5720,8 @@
       "sectorEtf": "XLC",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 118622056
     },
     {
       "ticker": "NXPI",
@@ -5256,7 +5735,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "NL0009538784",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 968820241
     },
     {
       "ticker": "O",
@@ -5269,7 +5749,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 422758241
     },
     {
       "ticker": "ODFL",
@@ -5283,7 +5764,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US6795801009",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 337721652
     },
     {
       "ticker": "OKE",
@@ -5296,7 +5778,8 @@
       "sectorEtf": "XLE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 311214874
     },
     {
       "ticker": "OKTA",
@@ -5309,7 +5792,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 788691522
     },
     {
       "ticker": "OMC",
@@ -5322,7 +5806,8 @@
       "sectorEtf": "XLC",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 223697477
     },
     {
       "ticker": "ON",
@@ -5335,7 +5820,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 771393153
     },
     {
       "ticker": "OR.PA",
@@ -5348,7 +5834,9 @@
       "sectorEtf": "XLP",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Paris"
+      "exchange": "Paris",
+      "adv": 145039403,
+      "medium": true
     },
     {
       "ticker": "ORCL",
@@ -5361,7 +5849,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 4546740125
     },
     {
       "ticker": "ORLY",
@@ -5375,7 +5864,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US67103H1077",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 530076331
     },
     {
       "ticker": "OTIS",
@@ -5388,7 +5878,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 314509846
     },
     {
       "ticker": "OXY",
@@ -5401,7 +5892,8 @@
       "sectorEtf": "XLE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 542189091
     },
     {
       "ticker": "P",
@@ -5414,7 +5906,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 553197588
     },
     {
       "ticker": "PAH3.DE",
@@ -5427,7 +5920,9 @@
       "sectorEtf": "XLY",
       "indices": ["DAX"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 16957700,
+      "medium": true
     },
     {
       "ticker": "PANW",
@@ -5441,7 +5936,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US6974351057",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 2205531356
     },
     {
       "ticker": "PAYX",
@@ -5455,7 +5951,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US7043261079",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 331552398
     },
     {
       "ticker": "PCAR",
@@ -5469,7 +5966,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US6937181088",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 381195132
     },
     {
       "ticker": "PCG",
@@ -5482,7 +5980,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 541629228
     },
     {
       "ticker": "PDD",
@@ -5496,7 +5995,8 @@
       "isin": "US7223041028",
       "indices": ["Nasdaq-100"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 499118529
     },
     {
       "ticker": "PEG",
@@ -5509,7 +6009,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 250556842
     },
     {
       "ticker": "PEP",
@@ -5523,7 +6024,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US7134481081",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 1254417018
     },
     {
       "ticker": "PFE",
@@ -5536,7 +6038,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 965272208
     },
     {
       "ticker": "PFG",
@@ -5549,7 +6052,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 143453371
     },
     {
       "ticker": "PG",
@@ -5562,7 +6066,9 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1436713796,
+      "medium": true
     },
     {
       "ticker": "PGR",
@@ -5575,7 +6081,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 563019887
     },
     {
       "ticker": "PH",
@@ -5588,7 +6095,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 608663490
     },
     {
       "ticker": "PHM",
@@ -5601,7 +6109,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 220970217
     },
     {
       "ticker": "PKG",
@@ -5614,7 +6123,8 @@
       "sectorEtf": "XLB",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 153909292
     },
     {
       "ticker": "PLD",
@@ -5627,7 +6137,9 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 480767616,
+      "medium": true
     },
     {
       "ticker": "PLTR",
@@ -5641,7 +6153,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US69608A1088",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 4639670011
     },
     {
       "ticker": "PM",
@@ -5654,7 +6167,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 895494464
     },
     {
       "ticker": "PNC",
@@ -5667,7 +6181,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 417715083
     },
     {
       "ticker": "PNR",
@@ -5680,7 +6195,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 193014408
     },
     {
       "ticker": "PNW",
@@ -5693,7 +6209,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 137228179
     },
     {
       "ticker": "PODD",
@@ -5706,7 +6223,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 225828970
     },
     {
       "ticker": "PPG",
@@ -5719,7 +6237,8 @@
       "sectorEtf": "XLB",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 196172473
     },
     {
       "ticker": "PPL",
@@ -5732,7 +6251,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 265543160
     },
     {
       "ticker": "PRU",
@@ -5745,7 +6265,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 198904646
     },
     {
       "ticker": "PRX.AS",
@@ -5758,7 +6279,9 @@
       "sectorEtf": "XLY",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Amsterdam"
+      "exchange": "Amsterdam",
+      "adv": 107655086,
+      "medium": true
     },
     {
       "ticker": "PSA",
@@ -5771,7 +6294,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 287921068
     },
     {
       "ticker": "PSX",
@@ -5784,7 +6308,8 @@
       "sectorEtf": "XLE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 780855856
     },
     {
       "ticker": "PTC",
@@ -5797,7 +6322,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 440102947
     },
     {
       "ticker": "PWR",
@@ -5810,7 +6336,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 742302471
     },
     {
       "ticker": "PYPL",
@@ -5824,7 +6351,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US70450Y1038",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 657325517
     },
     {
       "ticker": "Q",
@@ -5837,7 +6365,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 221451122
     },
     {
       "ticker": "QCOM",
@@ -5851,7 +6380,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US7475251036",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 2229174309
     },
     {
       "ticker": "QIA.DE",
@@ -5864,7 +6394,9 @@
       "sectorEtf": "XLV",
       "indices": ["DAX"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 36119355,
+      "medium": true
     },
     {
       "ticker": "RACE.MI",
@@ -5877,7 +6409,9 @@
       "sectorEtf": "XLY",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Milan"
+      "exchange": "Milan",
+      "adv": 137445035,
+      "medium": true
     },
     {
       "ticker": "RCL",
@@ -5890,7 +6424,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 653491205
     },
     {
       "ticker": "RDDT",
@@ -5903,7 +6438,8 @@
       "sectorEtf": "XLC",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 750486451
     },
     {
       "ticker": "REG",
@@ -5916,7 +6452,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 98103055
     },
     {
       "ticker": "REGN",
@@ -5930,7 +6467,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US75886F1075",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 668453895
     },
     {
       "ticker": "RF",
@@ -5943,7 +6481,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 272983645
     },
     {
       "ticker": "RHM.DE",
@@ -5956,7 +6495,9 @@
       "sectorEtf": "XLI",
       "indices": ["DAX", "Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 198714071,
+      "medium": true
     },
     {
       "ticker": "RJF",
@@ -5969,7 +6510,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 201834431
     },
     {
       "ticker": "RKLB",
@@ -5983,7 +6525,8 @@
       "isin": "US7731211089",
       "indices": ["Nasdaq-100"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 1231572790
     },
     {
       "ticker": "RL",
@@ -5996,7 +6539,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 224013535
     },
     {
       "ticker": "RMD",
@@ -6009,7 +6553,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 302493936
     },
     {
       "ticker": "RMS.PA",
@@ -6022,7 +6567,9 @@
       "sectorEtf": "XLY",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Paris"
+      "exchange": "Paris",
+      "adv": 148889801,
+      "medium": true
     },
     {
       "ticker": "ROK",
@@ -6035,7 +6582,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 356386816
     },
     {
       "ticker": "ROL",
@@ -6048,7 +6596,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 228000131
     },
     {
       "ticker": "ROP",
@@ -6062,7 +6611,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US7766961061",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 364432143
     },
     {
       "ticker": "ROST",
@@ -6076,7 +6626,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US7782961038",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 529285002
     },
     {
       "ticker": "RSG",
@@ -6089,7 +6640,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 334909767
     },
     {
       "ticker": "RTX",
@@ -6102,7 +6654,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 914049058
     },
     {
       "ticker": "RVTY",
@@ -6115,7 +6668,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 280486591
     },
     {
       "ticker": "RWE.DE",
@@ -6128,7 +6682,9 @@
       "sectorEtf": "XLU",
       "indices": ["DAX"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 75160361,
+      "medium": true
     },
     {
       "ticker": "SAF.PA",
@@ -6141,7 +6697,9 @@
       "sectorEtf": "XLI",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Paris"
+      "exchange": "Paris",
+      "adv": 180725756,
+      "medium": true
     },
     {
       "ticker": "SAN.MC",
@@ -6154,7 +6712,9 @@
       "sectorEtf": "XLF",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "MCE"
+      "exchange": "MCE",
+      "adv": 271352429,
+      "medium": true
     },
     {
       "ticker": "SAN.PA",
@@ -6167,7 +6727,9 @@
       "sectorEtf": "XLV",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Paris"
+      "exchange": "Paris",
+      "adv": 170431778,
+      "medium": true
     },
     {
       "ticker": "SAP.DE",
@@ -6180,7 +6742,9 @@
       "sectorEtf": "XLK",
       "indices": ["DAX", "Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 412677518,
+      "medium": true
     },
     {
       "ticker": "SBAC",
@@ -6193,7 +6757,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 185352728
     },
     {
       "ticker": "SBUX",
@@ -6207,7 +6772,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US8552441094",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 787845992
     },
     {
       "ticker": "SCHW",
@@ -6220,7 +6786,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 851167243
     },
     {
       "ticker": "SGO.PA",
@@ -6233,7 +6800,9 @@
       "sectorEtf": "XLI",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Paris"
+      "exchange": "Paris",
+      "adv": 76720003,
+      "medium": true
     },
     {
       "ticker": "SHL.DE",
@@ -6246,7 +6815,9 @@
       "sectorEtf": "XLV",
       "indices": ["DAX"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 37244989,
+      "medium": true
     },
     {
       "ticker": "SHOP",
@@ -6260,7 +6831,8 @@
       "isin": "CA82509L1076",
       "indices": ["Nasdaq-100"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 1297257209
     },
     {
       "ticker": "SHW",
@@ -6273,7 +6845,9 @@
       "sectorEtf": "XLB",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 592854314,
+      "medium": true
     },
     {
       "ticker": "SIE.DE",
@@ -6286,7 +6860,9 @@
       "sectorEtf": "XLI",
       "indices": ["DAX", "Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 272299697,
+      "medium": true
     },
     {
       "ticker": "SJM",
@@ -6299,7 +6875,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 158830204
     },
     {
       "ticker": "SKYD",
@@ -6312,7 +6889,8 @@
       "sectorEtf": "XLC",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 212019443
     },
     {
       "ticker": "SLB",
@@ -6325,7 +6903,8 @@
       "sectorEtf": "XLE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 659526284
     },
     {
       "ticker": "SMCI",
@@ -6338,7 +6917,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 1436723551
     },
     {
       "ticker": "SNA",
@@ -6351,7 +6931,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 127253461
     },
     {
       "ticker": "SNDK",
@@ -6365,7 +6946,9 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US80004C2008",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 14869194780,
+      "medium": true
     },
     {
       "ticker": "SNPS",
@@ -6379,7 +6962,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US8716071076",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 952908846
     },
     {
       "ticker": "SO",
@@ -6392,7 +6976,9 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 616823343,
+      "medium": true
     },
     {
       "ticker": "SOLV",
@@ -6405,7 +6991,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 91357952
     },
     {
       "ticker": "SPCX",
@@ -6419,7 +7006,9 @@
       "isin": "US84615Q1031",
       "indices": ["Nasdaq-100"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 13931445374,
+      "medium": true
     },
     {
       "ticker": "SPG",
@@ -6432,7 +7021,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 270709034
     },
     {
       "ticker": "SPGI",
@@ -6445,7 +7035,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 780120628
     },
     {
       "ticker": "SRE",
@@ -6458,7 +7049,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 324736303
     },
     {
       "ticker": "STE",
@@ -6471,7 +7063,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 163186039
     },
     {
       "ticker": "STLD",
@@ -6484,7 +7077,8 @@
       "sectorEtf": "XLB",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 247095369
     },
     {
       "ticker": "STT",
@@ -6497,7 +7091,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 332535627
     },
     {
       "ticker": "STX",
@@ -6511,7 +7106,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "IE00BKVD2N49",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 3499222469
     },
     {
       "ticker": "STZ",
@@ -6524,7 +7120,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 298551656
     },
     {
       "ticker": "SU.PA",
@@ -6537,7 +7134,9 @@
       "sectorEtf": "XLI",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Paris"
+      "exchange": "Paris",
+      "adv": 282650724,
+      "medium": true
     },
     {
       "ticker": "SW",
@@ -6550,7 +7149,8 @@
       "sectorEtf": "XLB",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 203173586
     },
     {
       "ticker": "SWK",
@@ -6563,7 +7163,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 169061198
     },
     {
       "ticker": "SWKS",
@@ -6576,7 +7177,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 518463363
     },
     {
       "ticker": "SY1.DE",
@@ -6589,7 +7191,9 @@
       "sectorEtf": "XLB",
       "indices": ["DAX"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 32072281,
+      "medium": true
     },
     {
       "ticker": "SYF",
@@ -6602,7 +7206,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 277488039
     },
     {
       "ticker": "SYK",
@@ -6615,7 +7220,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 870971439
     },
     {
       "ticker": "SYY",
@@ -6628,7 +7234,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 290803292
     },
     {
       "ticker": "T",
@@ -6641,7 +7248,8 @@
       "sectorEtf": "XLC",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1010958028
     },
     {
       "ticker": "TDG",
@@ -6654,7 +7262,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 444702732
     },
     {
       "ticker": "TDY",
@@ -6667,7 +7276,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 194472438
     },
     {
       "ticker": "TECH",
@@ -6680,7 +7290,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 210865651
     },
     {
       "ticker": "TEL",
@@ -6693,7 +7304,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 419602087
     },
     {
       "ticker": "TER",
@@ -6707,7 +7319,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US8807701029",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 1027961149
     },
     {
       "ticker": "TFC",
@@ -6720,7 +7333,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 362040462
     },
     {
       "ticker": "TGT",
@@ -6733,7 +7347,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 638087594
     },
     {
       "ticker": "TJX",
@@ -6746,7 +7361,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1072128909
     },
     {
       "ticker": "TKO",
@@ -6759,7 +7375,8 @@
       "sectorEtf": "XLC",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 206249225
     },
     {
       "ticker": "TMO",
@@ -6772,7 +7389,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1419049684
     },
     {
       "ticker": "TMUS",
@@ -6786,7 +7404,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US8725901040",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 917364732
     },
     {
       "ticker": "TPL",
@@ -6799,7 +7418,8 @@
       "sectorEtf": "XLE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 129757781
     },
     {
       "ticker": "TPR",
@@ -6812,7 +7432,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 364816985
     },
     {
       "ticker": "TRGP",
@@ -6825,7 +7446,8 @@
       "sectorEtf": "XLE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 363214676
     },
     {
       "ticker": "TRI",
@@ -6839,7 +7461,8 @@
       "isin": "CA8849038812",
       "indices": ["Nasdaq-100"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 183046917
     },
     {
       "ticker": "TRMB",
@@ -6852,7 +7475,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 161895216
     },
     {
       "ticker": "TROW",
@@ -6865,7 +7489,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 186435407
     },
     {
       "ticker": "TRV",
@@ -6878,7 +7503,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 554270972
     },
     {
       "ticker": "TSCO",
@@ -6891,7 +7517,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 377600683
     },
     {
       "ticker": "TSLA",
@@ -6905,7 +7532,9 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US88160R1014",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 13864245618,
+      "medium": true
     },
     {
       "ticker": "TSN",
@@ -6918,7 +7547,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 199192276
     },
     {
       "ticker": "TT",
@@ -6931,7 +7561,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 582357855
     },
     {
       "ticker": "TTE.PA",
@@ -6944,7 +7575,9 @@
       "sectorEtf": "XLE",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Paris"
+      "exchange": "Paris",
+      "adv": 297312836,
+      "medium": true
     },
     {
       "ticker": "TTWO",
@@ -6958,7 +7591,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US8740541094",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 626492175
     },
     {
       "ticker": "TWLO",
@@ -6971,7 +7605,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 767691132
     },
     {
       "ticker": "TXN",
@@ -6985,7 +7620,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US8825081040",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 1913005294
     },
     {
       "ticker": "TXT",
@@ -6998,7 +7634,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 142414486
     },
     {
       "ticker": "TYL",
@@ -7011,7 +7648,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 303903058
     },
     {
       "ticker": "UAL",
@@ -7024,7 +7662,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 491880616
     },
     {
       "ticker": "UBER",
@@ -7037,7 +7676,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1227063703
     },
     {
       "ticker": "UCG.MI",
@@ -7050,7 +7690,9 @@
       "sectorEtf": "XLF",
       "indices": ["Euro Stoxx 50"],
       "currency": "EUR",
-      "exchange": "Milan"
+      "exchange": "Milan",
+      "adv": 353779785,
+      "medium": true
     },
     {
       "ticker": "UDR",
@@ -7063,7 +7705,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 143820286
     },
     {
       "ticker": "UHS",
@@ -7076,7 +7719,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 127069491
     },
     {
       "ticker": "ULTA",
@@ -7089,7 +7733,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 303396212
     },
     {
       "ticker": "UNH",
@@ -7102,7 +7747,9 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 2052984153,
+      "medium": true
     },
     {
       "ticker": "UNP",
@@ -7115,7 +7762,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 743907932
     },
     {
       "ticker": "UPS",
@@ -7128,7 +7776,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 496105982
     },
     {
       "ticker": "URI",
@@ -7141,7 +7790,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 528528337
     },
     {
       "ticker": "USB",
@@ -7154,7 +7804,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 439974923
     },
     {
       "ticker": "V",
@@ -7167,7 +7818,9 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 2488927526,
+      "medium": true
     },
     {
       "ticker": "VEEV",
@@ -7180,7 +7833,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 451549657
     },
     {
       "ticker": "VICI",
@@ -7193,7 +7847,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 240165938
     },
     {
       "ticker": "VLO",
@@ -7206,7 +7861,9 @@
       "sectorEtf": "XLE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1193033955,
+      "medium": true
     },
     {
       "ticker": "VLTO",
@@ -7219,7 +7876,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 186285949
     },
     {
       "ticker": "VMC",
@@ -7232,7 +7890,8 @@
       "sectorEtf": "XLB",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 308539533
     },
     {
       "ticker": "VMRK",
@@ -7245,7 +7904,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 343771675
     },
     {
       "ticker": "VNA.DE",
@@ -7258,7 +7918,9 @@
       "sectorEtf": "XLRE",
       "indices": ["DAX"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 61165100,
+      "medium": true
     },
     {
       "ticker": "VOW3.DE",
@@ -7271,7 +7933,9 @@
       "sectorEtf": "XLY",
       "indices": ["DAX"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 79995080,
+      "medium": true
     },
     {
       "ticker": "VRSK",
@@ -7284,7 +7948,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 231516099
     },
     {
       "ticker": "VRSN",
@@ -7297,7 +7962,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 260336333
     },
     {
       "ticker": "VRT",
@@ -7310,7 +7976,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1428259972
     },
     {
       "ticker": "VRTX",
@@ -7324,7 +7991,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US92532F1003",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 654191331
     },
     {
       "ticker": "VST",
@@ -7337,7 +8005,9 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 862954560,
+      "medium": true
     },
     {
       "ticker": "VTR",
@@ -7350,7 +8020,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 310836521
     },
     {
       "ticker": "VTRS",
@@ -7363,7 +8034,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 159322485
     },
     {
       "ticker": "VYLR",
@@ -7376,7 +8048,8 @@
       "sectorEtf": "XLP",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 360048295
     },
     {
       "ticker": "VZ",
@@ -7389,7 +8062,8 @@
       "sectorEtf": "XLC",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1088742991
     },
     {
       "ticker": "WAB",
@@ -7402,7 +8076,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 256975734
     },
     {
       "ticker": "WAT",
@@ -7415,7 +8090,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 360477366
     },
     {
       "ticker": "WDAY",
@@ -7429,7 +8105,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US98138H1014",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 524474754
     },
     {
       "ticker": "WDC",
@@ -7443,7 +8120,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US9581021055",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 3116755208
     },
     {
       "ticker": "WEC",
@@ -7456,7 +8134,8 @@
       "sectorEtf": "XLU",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 306938237
     },
     {
       "ticker": "WELL",
@@ -7469,7 +8148,9 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 642828976,
+      "medium": true
     },
     {
       "ticker": "WFC",
@@ -7482,7 +8163,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 1172909944
     },
     {
       "ticker": "WM",
@@ -7495,7 +8177,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 501297660
     },
     {
       "ticker": "WMB",
@@ -7508,7 +8191,8 @@
       "sectorEtf": "XLE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 576545799
     },
     {
       "ticker": "WMT",
@@ -7522,7 +8206,9 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US9311421039",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 2692021987,
+      "medium": true
     },
     {
       "ticker": "WRB",
@@ -7535,7 +8221,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 180313706
     },
     {
       "ticker": "WSM",
@@ -7548,7 +8235,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 265738336
     },
     {
       "ticker": "WST",
@@ -7561,7 +8249,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 229272513
     },
     {
       "ticker": "WTW",
@@ -7574,7 +8263,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 166164042
     },
     {
       "ticker": "WY",
@@ -7587,7 +8277,8 @@
       "sectorEtf": "XLRE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 151974982
     },
     {
       "ticker": "WYNN",
@@ -7600,7 +8291,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 181935719
     },
     {
       "ticker": "XEL",
@@ -7614,7 +8306,8 @@
       "indices": ["S&P 500", "Nasdaq-100"],
       "isin": "US98389B1008",
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 510402104
     },
     {
       "ticker": "XOM",
@@ -7627,7 +8320,9 @@
       "sectorEtf": "XLE",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 2276977044,
+      "medium": true
     },
     {
       "ticker": "XYL",
@@ -7640,7 +8335,8 @@
       "sectorEtf": "XLI",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 281017526
     },
     {
       "ticker": "XYZ",
@@ -7653,7 +8349,8 @@
       "sectorEtf": "XLF",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 385154737
     },
     {
       "ticker": "YUM",
@@ -7666,7 +8363,8 @@
       "sectorEtf": "XLY",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 354134251
     },
     {
       "ticker": "ZAL.DE",
@@ -7679,7 +8377,9 @@
       "sectorEtf": "SPY",
       "indices": ["DAX"],
       "currency": "EUR",
-      "exchange": "XETRA"
+      "exchange": "XETRA",
+      "adv": 27063948,
+      "medium": true
     },
     {
       "ticker": "ZBH",
@@ -7692,7 +8392,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 201837212
     },
     {
       "ticker": "ZBRA",
@@ -7705,7 +8406,8 @@
       "sectorEtf": "XLK",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NasdaqGS"
+      "exchange": "NasdaqGS",
+      "adv": 214614547
     },
     {
       "ticker": "ZTS",
@@ -7718,7 +8420,8 @@
       "sectorEtf": "XLV",
       "indices": ["S&P 500"],
       "currency": "USD",
-      "exchange": "NYSE"
+      "exchange": "NYSE",
+      "adv": 342355211
     }
   ]
 }

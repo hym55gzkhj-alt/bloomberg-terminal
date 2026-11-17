@@ -120,3 +120,20 @@ describe("universe ISINs", () => {
     expect(isValidIsin("US0378331006")).toBe(false);
   });
 });
+
+describe("universe composition", () => {
+  it("medium universe keeps all 20 core stocks exactly once and adds diverse sectors", async () => {
+    const { getUniverse, BASE_UNIVERSE } = await import("../universe");
+    const g = globalThis as unknown as { __radarUniverse?: unknown };
+    g.__radarUniverse = undefined;
+    const u = getUniverse();
+    for (const b of BASE_UNIVERSE) {
+      expect(u.filter((e) => e.ticker === b.ticker).length, b.ticker).toBe(1);
+      expect(u.find((e) => e.ticker === b.ticker)?.core).toBe(true);
+    }
+    const yahoo = u.map((e) => e.yahoo.toUpperCase());
+    expect(new Set(yahoo).size).toBe(yahoo.length);
+    expect(new Set(u.map((e) => e.sectorEtf)).size).toBeGreaterThanOrEqual(11);
+    expect(u.length).toBeGreaterThan(100);
+  });
+});

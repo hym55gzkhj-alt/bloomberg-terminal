@@ -22,6 +22,7 @@ from html.parser import HTMLParser
 
 UA_WIKI = "AIStockRadarUniverseBuilder/1.0 (open-source research tool)"
 UA_YAHOO = "Mozilla/5.0 (compatible; AIStockRadar/1.0)"
+MEDIUM_PER_SECTOR = 4
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "lib", "radar", "data", "universe-large.json")
 
@@ -228,7 +229,7 @@ def isin_ok(isin):
 
 
 def yahoo_check(symbol):
-    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{urllib.parse.quote(symbol)}?range=5d&interval=1d"
+    url = f"https://query1.finance.yahoo.com/v8/finance/chart/{urllib.parse.quote(symbol)}?range=3mo&interval=1d"
     for attempt in range(3):
         try:
             data = json.loads(fetch(url, UA_YAHOO))
@@ -238,7 +239,14 @@ def yahoo_check(symbol):
             m = res[0]["meta"]
             if m.get("instrumentType") not in ("EQUITY", None):
                 return None
-            return {"currency": m.get("currency"), "exchange": m.get("fullExchangeName") or m.get("exchangeName")}
+            q = res[0]["indicators"]["quote"][0]
+            pairs = [(c, v) for c, v in zip(q.get("close") or [], q.get("volume") or []) if c and v]
+            adv = sum(c * v for c, v in pairs) / len(pairs) if pairs else 0
+            return {
+                "currency": m.get("currency"),
+                "exchange": m.get("fullExchangeName") or m.get("exchangeName"),
+                "adv": adv,
+            }
         except Exception:
             time.sleep(2 * (attempt + 1))
     return None
@@ -310,13 +318,27 @@ def main():
             continue
         e["currency"] = c["currency"]
         e["exchange"] = c["exchange"]
+        e["adv"] = round(c["adv"])
         out.append(e)
+
+    # "medium" universe: all European index members + the 4 most traded US stocks
+    # (average daily traded value, last 3 months) of every sector
+    per_sector = {}
+    for e in out:
+        if e["region"] != "US":
+            e["medium"] = True
+        else:
+            per_sector.setdefault(e["sectorEtf"], []).append(e)
+    for etf, rows in per_sector.items():
+        for e in sorted(rows, key=lambda x: -x["adv"])[:MEDIUM_PER_SECTOR]:
+            e["medium"] = True
     out.sort(key=lambda e: e["ticker"])
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as f:
         json.dump({
             "generatedAt": time.strftime("%Y-%m-%d"),
             "source": "Wikipedia (S&P 500, Nasdaq-100, DAX, Euro Stoxx 50) – verified against Yahoo Finance",
+            "mediumRule": f"all DAX / Euro Stoxx 50 members + the {MEDIUM_PER_SECTOR} most traded US stocks per sector (avg daily traded value, 3 months)",
             "entries": out,
         }, f, ensure_ascii=False, indent=1)
     print(f"wrote {len(out)} entries to {OUT}; dropped (no Yahoo data): {dropped}")
