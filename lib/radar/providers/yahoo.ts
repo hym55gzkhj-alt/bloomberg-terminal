@@ -231,3 +231,39 @@ export async function probeYahoo(): Promise<{ ok: boolean; message: string }> {
     return { ok: false, message: (err as Error).message };
   }
 }
+
+export interface SearchHit {
+  symbol: string;
+  name: string;
+  exchange: string;
+  type: string;
+}
+
+/** Company-name search (Yahoo Finance). Returns equities only. */
+export async function searchSymbols(query: string): Promise<SearchHit[]> {
+  const q = query.trim().slice(0, 60);
+  if (q.length < 2) return [];
+  const res = await cached(`yahoo:search:${q.toLowerCase()}`, 3600, async () => {
+    const url = `${BASE}/v1/finance/search?q=${encodeURIComponent(q)}&quotesCount=10&newsCount=0&enableFuzzyQuery=true`;
+    const json = await limiter.schedule(() =>
+      fetchJson<{
+        quotes?: {
+          symbol: string;
+          shortname?: string;
+          longname?: string;
+          exchDisp?: string;
+          quoteType?: string;
+        }[];
+      }>(PROVIDER, url, { headers: HEADERS })
+    );
+    return (json.quotes ?? [])
+      .filter((x) => x.quoteType === "EQUITY" && x.symbol)
+      .map((x) => ({
+        symbol: x.symbol,
+        name: (x.longname || x.shortname || x.symbol).trim(),
+        exchange: x.exchDisp ?? "",
+        type: x.quoteType ?? "",
+      }));
+  });
+  return res.data;
+}

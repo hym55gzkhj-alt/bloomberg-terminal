@@ -21,7 +21,12 @@ Früherkennung ungewöhnlicher Entwicklungen bei bekannten, liquiden Aktien. Die
 | 8 | BT | Signal Performance | Backtest über 5/10/20/60 Handelstage inklusive Fehlsignalen |
 | 9 | CFG | Gewichtung | Konfigurierbare Gewichte der Engine |
 
-Die Befehlszeile (`/`) nimmt einen Ticker (z. B. `CRM`) oder einen Funktionscode (z. B. `BT`) entgegen. Ticker außerhalb des Universums werden nur analysiert, wenn sie liquide sind: Kurs mindestens 5, Ø-Handelswert mindestens 20 Mio. pro Tag, mindestens 1 Jahr Historie. Penny Stocks sind damit ausgeschlossen.
+Die Befehlszeile (`/`) und das Analysefeld nehmen einen Ticker (z. B. `CRM`), einen **Firmennamen** (z. B. „Fit Group“, mit Trefferliste) oder einen Funktionscode (z. B. `BT`) entgegen. Titel außerhalb des Universums werden geprüft:
+- **Volle Analyse:** Ø-Handelswert mindestens 20 Mio. pro Tag und mindestens 1 Jahr Historie.
+- **Eingeschränkte Analyse mit rotem Warnhinweis:** Ø-Handelswert ab 0,25 Mio. pro Tag oder ab 80 Handelstagen Historie. Nicht berechenbare Werte werden als „nicht verfügbar“ markiert.
+- **Keine Analyse:** Penny Stocks (Kurs unter 5) und darunter liegende Liquidität bzw. Historie.
+
+Jede Aktie des Universums zeigt ihre **ISIN** mit Kopier-Knopf, z. B. für die Suche bei Trade Republic.
 
 ## AI Early Signal Engine (`lib/radar/engine.ts`)
 

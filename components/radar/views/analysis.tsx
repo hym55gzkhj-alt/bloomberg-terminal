@@ -2,11 +2,13 @@
 
 import { CATEGORY_LABELS } from "@/lib/radar/config";
 import { computeSeries } from "@/lib/radar/indicators";
+import type { SearchHit } from "@/lib/radar/providers/yahoo";
 import type { DetailPayload } from "@/lib/radar/types";
 import { cn } from "@/lib/utils";
+import { useQuery } from "@tanstack/react-query";
 import { useAtom, useAtomValue } from "jotai";
 import { Star } from "lucide-react";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   Bar,
   BarChart,
@@ -42,39 +44,124 @@ const RANGES = { "3M": 63, "6M": 126, "1J": 252, "2J": 504 } as const;
 const axis = { fontSize: 10, fill: "#777" };
 const tooltipStyle = { background: "#111", border: "1px solid #444", fontSize: 11 };
 
+function useSymbolSearch(query: string) {
+  const [debounced, setDebounced] = useState(query);
+  useEffect(() => {
+    const t = setTimeout(() => setDebounced(query.trim()), 300);
+    return () => clearTimeout(t);
+  }, [query]);
+  return useQuery({
+    queryKey: ["radar", "search", debounced.toLowerCase()],
+    queryFn: async () => {
+      const res = await fetch(`/api/radar/search?q=${encodeURIComponent(debounced)}`);
+      const body = await res.json();
+      if (!res.ok) throw new Error(body?.error ?? `HTTP ${res.status}`);
+      return body.hits as SearchHit[];
+    },
+    enabled: debounced.length >= 2,
+    staleTime: 10 * 60_000,
+    retry: 0,
+  });
+}
+
+function SearchHits({ hits, onPick }: { hits: SearchHit[]; onPick: (symbol: string) => void }) {
+  if (!hits.length) return null;
+  return (
+    <ul className="max-w-xl divide-y divide-neutral-900 border border-neutral-700 bg-[#0b0b0b] text-[11px]">
+      {hits.map((h) => (
+        <li key={h.symbol}>
+          <button
+            type="button"
+            onClick={() => onPick(h.symbol)}
+            className="flex w-full items-center justify-between gap-3 px-2 py-1.5 text-left hover:bg-neutral-900"
+          >
+            <span>
+              <span className="font-bold text-amber-300">{h.symbol}</span>{" "}
+              <span className="text-neutral-200">{h.name}</span>
+            </span>
+            <span className="text-[10px] text-neutral-500">{h.exchange}</span>
+          </button>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 export function AnalysisView() {
   const [ticker, setTicker] = useAtom(selectedTickerAtom);
-  const { data, isLoading, error, refetch, isFetching } = useDetail(ticker);
+  const validTicker = /^[A-Z0-9.^=-]{1,15}$/.test(ticker);
+  const { data, isLoading, error, refetch, isFetching } = useDetail(validTicker ? ticker : null);
   const [input, setInput] = useState("");
+  const live = useSymbolSearch(input);
+  // ticker not found / not a ticker (e.g. a company name) → offer name matches
+  const fallback = useSymbolSearch(error || !validTicker ? ticker : "");
+  const pick = (symbol: string) => {
+    setTicker(symbol.toUpperCase());
+    setInput("");
+  };
   return (
     <div className="space-y-2">
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          if (input.trim()) setTicker(input.trim().toUpperCase());
-          setInput("");
+          const v = input.trim();
+          if (!v) return;
+          // a single exact hit or a ticker-like input is analysed directly
+          if (live.data?.length && /\s/.test(v)) pick(live.data[0].symbol);
+          else pick(v);
         }}
-        className="flex items-center gap-2 text-[11px]"
+        className="space-y-1 text-[11px]"
       >
-        <span className="text-neutral-400">Analyse:</span>
-        <input
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder={ticker}
-          className="h-6 w-40 border border-neutral-700 bg-black px-2 uppercase"
-        />
-        <button
-          type="submit"
-          className="h-6 border border-amber-600 px-2 text-amber-300 hover:bg-amber-600 hover:text-black"
-        >
-          GO
-        </button>
-        {isFetching && !isLoading && <span className="text-neutral-500">aktualisiere…</span>}
+        <div className="flex items-center gap-2">
+          <span className="text-neutral-400">Analyse:</span>
+          <input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder={`${ticker} – Ticker oder Firmenname, z. B. „Fit Group“`}
+            className="h-6 w-72 max-w-full border border-neutral-700 bg-black px-2"
+          />
+          <button
+            type="submit"
+            className="h-6 border border-amber-600 px-2 text-amber-300 hover:bg-amber-600 hover:text-black"
+          >
+            GO
+          </button>
+          {isFetching && !isLoading && <span className="text-neutral-500">aktualisiere…</span>}
+        </div>
+        {input.trim().length >= 2 && (
+          <>
+            {live.isFetching && <div className="text-neutral-500">Suche…</div>}
+            {live.data && live.data.length === 0 && !live.isFetching && (
+              <div className="text-neutral-500">Keine Aktie zu „{input}“ gefunden.</div>
+            )}
+            <SearchHits hits={live.data ?? []} onPick={pick} />
+          </>
+        )}
       </form>
       {isLoading && (
         <Loading label={`Lade ${ticker}: Kurshistorie, Nachrichten, Kennzahlen, Backtest…`} />
       )}
-      {error && <ErrorBox error={error} onRetry={() => refetch()} />}
+      {(error || !validTicker) && (
+        <>
+          {error &&
+            (fallback.data && fallback.data.length > 0 ? (
+              <div className="text-xs text-neutral-300">
+                „{ticker}“ ist kein Börsenkürzel oder wurde nicht gefunden.
+              </div>
+            ) : (
+              <ErrorBox error={error} onRetry={() => refetch()} />
+            ))}
+          {fallback.data && fallback.data.length > 0 && (
+            <div className="space-y-1">
+              <div className="text-[11px] text-amber-300">Meintest du eine dieser Aktien?</div>
+              <SearchHits hits={fallback.data} onPick={pick} />
+            </div>
+          )}
+          {!validTicker && fallback.data?.length === 0 && (
+            <div className="text-xs text-neutral-400">Keine Aktie zu „{ticker}“ gefunden.</div>
+          )}
+        </>
+      )}
       {data && <Detail data={data} />}
     </div>
   );
@@ -171,6 +258,18 @@ function Detail({ data }: { data: DetailPayload }) {
         </div>
       </div>
 
+      {a.limited && a.limited.length > 0 && (
+        <div className="border-2 border-red-700 bg-red-950/50 p-2 text-[11px] text-red-200">
+          <div className="font-bold text-red-300">
+            ⚠ Eingeschränkte Analyse – Ergebnisse mit großer Vorsicht betrachten
+          </div>
+          <ul className="mt-1 list-disc pl-4">
+            {a.limited.map((l) => (
+              <li key={l}>{l}</li>
+            ))}
+          </ul>
+        </div>
+      )}
       <TradePanel analysis={a} currency={q.currency} />
 
       <div className="grid gap-2 xl:grid-cols-[1fr_420px]">
