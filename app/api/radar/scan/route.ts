@@ -1,11 +1,16 @@
+import { drainPending } from "@/lib/radar/analyze";
 import { jsonError, jsonOk } from "@/lib/radar/http-response";
 import { scanUniverse } from "@/lib/radar/scan";
+
+import { after } from "next/server";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
 export const maxDuration = 300;
 
 export async function GET() {
+  // keep rate-limited background requests alive after the response (fills the cache)
+  after(drainPending);
   try {
     const scan = await scanUniverse();
     if (scan.results.length === 0) {

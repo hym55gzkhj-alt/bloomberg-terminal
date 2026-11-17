@@ -32,6 +32,13 @@ export function ScanMeta({ scan }: { scan: ScanResult }) {
           </span>
         )}
       </div>
+      {scan.results.some((r) => r.warnings.some((w) => w.includes("nachgeladen"))) && (
+        <div className="text-amber-400">
+          Analysten- und Firmendaten von Finnhub werden im Hintergrund nachgeladen (kostenloses
+          Limit: 60 Abfragen/Minute). Die Ansicht aktualisiert sich automatisch in etwa einer
+          Minute.
+        </div>
+      )}
       {scan.errors.length > 0 && (
         <div className="text-red-400">
           Fehler (Titel ausgelassen, keine Ersatzdaten):{" "}
