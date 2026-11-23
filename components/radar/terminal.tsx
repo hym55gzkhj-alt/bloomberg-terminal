@@ -11,6 +11,8 @@ import { VIEWS, selectedTickerAtom, viewAtom } from "./state";
 import { AnalysisView } from "./views/analysis";
 import { BacktestView } from "./views/backtest";
 import { ScanProgressBar } from "./views/common";
+import { CongressView } from "./views/congress";
+import { DeskView } from "./views/desk";
 import { NewsView } from "./views/news";
 import { OpportunitiesView } from "./views/opportunities";
 import { OverviewView } from "./views/overview";
@@ -93,7 +95,7 @@ export default function RadarTerminal() {
             ref={inputRef}
             value={cmd}
             onChange={(e) => setCmd(e.target.value)}
-            placeholder="Ticker (z. B. NVDA, SAP, CRM) oder Funktion (SIG, BT) …  [/]"
+            placeholder="Ticker (z. B. NVDA, SAP, CRM) oder Funktion (SIG, DESK, CONG) …  [/]"
             className="h-6 w-72 border border-neutral-700 bg-black px-2 text-[11px] uppercase text-amber-200 outline-none placeholder:normal-case placeholder:text-neutral-600 focus:border-amber-500"
           />
         </form>
@@ -146,6 +148,8 @@ export default function RadarTerminal() {
         {view === "news" && <NewsView />}
         {view === "watchlist" && <WatchlistView />}
         {view === "backtest" && <BacktestView />}
+        {view === "desk" && <DeskView />}
+        {view === "congress" && <CongressView />}
         {view === "settings" && <SettingsView />}
       </main>
 
