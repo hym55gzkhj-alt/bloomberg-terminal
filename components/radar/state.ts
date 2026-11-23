@@ -1,6 +1,7 @@
 "use client";
 
 import { DEFAULT_WEIGHTS } from "@/lib/radar/config";
+import { DEFAULT_DESK, type DeskConfig } from "@/lib/radar/desk";
 import type { BacktestParams, Weights } from "@/lib/radar/types";
 import { atom } from "jotai";
 import { atomWithStorage } from "jotai/utils";
@@ -15,6 +16,8 @@ export type ViewKey =
   | "news"
   | "watchlist"
   | "backtest"
+  | "desk"
+  | "congress"
   | "settings";
 
 export const VIEWS: { key: ViewKey; code: string; label: string; hotkey: string }[] = [
@@ -27,6 +30,8 @@ export const VIEWS: { key: ViewKey; code: string; label: string; hotkey: string 
   { key: "news", code: "NEWS", label: "Live News", hotkey: "6" },
   { key: "watchlist", code: "WL", label: "Watchlist", hotkey: "7" },
   { key: "backtest", code: "BT", label: "Signal Performance", hotkey: "8" },
+  { key: "desk", code: "DESK", label: "Trading Desk", hotkey: "d" },
+  { key: "congress", code: "CONG", label: "Congress Trades", hotkey: "c" },
   { key: "settings", code: "CFG", label: "Gewichtung", hotkey: "9" },
 ];
 
@@ -50,3 +55,8 @@ export const backtestParamsAtom = atom<Partial<BacktestParams>>({
   cooldownDays: 20,
   years: 5,
 });
+
+/** Konto- und Risikoregeln des Trading Desks (nur im Browser gespeichert). */
+export const deskConfigAtom = atomWithStorage<DeskConfig>("radar.desk", DEFAULT_DESK);
+/** Seed der Time Machine – gleicher Seed, gleiche Zahlen. */
+export const tmSeedAtom = atomWithStorage<number>("radar.tmSeed", 19);

@@ -24,6 +24,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { TradeDeskPanel } from "../desk-panel";
 import { reweight, useDetail } from "../hooks";
 import { fmtNum, fmtPct, fmtTime, fmtVol, signColor } from "../lib/format";
 import { selectedTickerAtom, watchlistAtom, weightsAtom } from "../state";
@@ -271,6 +272,7 @@ function Detail({ data }: { data: DetailPayload }) {
         </div>
       )}
       <TradePanel analysis={a} currency={q.currency} />
+      <TradeDeskPanel detail={data} analysis={a} />
 
       <div className="grid gap-2 xl:grid-cols-[1fr_420px]">
         <div className="space-y-2">

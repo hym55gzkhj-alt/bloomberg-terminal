@@ -19,6 +19,8 @@ Früherkennung ungewöhnlicher Entwicklungen bei bekannten, liquiden Aktien. Die
 | 6 | NEWS | Live News | Echte Unternehmensnachrichten des Universums mit transparenter Tonalität |
 | 7 | WL | Watchlist | Eigene Liste (lokal im Browser), auch Titel außerhalb des Universums |
 | 8 | BT | Signal Performance | Backtest über 5/10/20/60 Handelstage inklusive Fehlsignalen |
+| d | DESK | **Trading Desk** | Aktive Setups mit Positionsgröße und Schnell-Check; je Titel Time Machine, Positionsgröße, Risiko-Check und Order-Ticket. Konto- und Risikoregeln einstellbar |
+| c | CONG | Congress Trades | Periodic Transaction Reports des US-Repräsentantenhauses mit Beobachtungsliste und Link zum Original-PDF |
 | 9 | CFG | Gewichtung | Konfigurierbare Gewichte der Engine |
 
 Die Befehlszeile (`/`) und das Analysefeld nehmen einen Ticker (z. B. `CRM`), einen **Firmennamen** (z. B. „Fit Group“, mit Trefferliste) oder einen Funktionscode (z. B. `BT`) entgegen. Titel außerhalb des Universums werden geprüft:
@@ -46,6 +48,19 @@ Die Größe wird über `RADAR_UNIVERSE` gewählt:
 **Schrittweiser Scan:** Mit kostenlosen Datenquellen lassen sich etwa 45–50 Aktien pro Minute laden. Jede Scan-Anfrage startet deshalb einen Hintergrundlauf von bis zu 4 Minuten (`next/server` `after`). Der Lauf analysiert zuerst fehlende, dann die ältesten Titel und speichert Zwischenergebnisse laufend. Die Oberfläche zeigt den Fortschritt und fragt währenddessen alle 10 s ab. Der erste komplette Durchlauf dauert etwa 12–15 Minuten.
 
 **Upstash-Verbrauch:** Kursdaten und News bleiben im Arbeitsspeicher. In Redis landen nur die Analyse-Ergebnisse (ein Hash, wenige Befehle pro Durchlauf), die Signalhistorie (nur bei Kategoriewechseln) sowie Fundamentaldaten und Backtests. Damit reicht der kostenlose Upstash-Plan.
+
+## Trading Desk (aus dem Day-Trader-Skill)
+
+Die Kette der [Day-Trader-Skills](https://github.com/hym55gzkhj-alt/day-trader-skill) läuft auf den regelbasierten Setups des Radars: **Signal → Time Machine → Positionsgröße → Risiko-Check → Order-Ticket**. Sie steht in der Ansicht DESK und unter jeder Detailanalyse (ANLY). Das Terminal sendet **nie** eine Order. Das Ticket ist eine Vorlage zum Abschreiben.
+
+| Modul | Datei | Herkunft | Inhalt |
+|---|---|---|---|
+| Time Machine | `lib/radar/timemachine.ts` | `trader-timemachine` | 10.000 Wiederholungen der nächsten 20 Handelstage, gebaut aus den letzten 250 echten Tageskerzen der Aktie (Bootstrap, Seed 19, reproduzierbar). Stop wird vor Ziel geprüft. Kurslücken werden zum Eröffnungskurs ausgeführt, Kosten wie im Backtest. Ausgabe: Ziel zuerst, Stop zuerst, weder noch, im Plus, Ø R, Fächer und Verteilung. Das Urteil vergleicht den Ziel-Anteil mit der Gewinnschwelle 1/(1+R). |
+| Positionsgröße | `lib/radar/desk.ts` | `trader-budget` | Ganze Stück = Minimum aus max. Verlust ÷ Risiko je Stück, Positionsgrenze, max. Orderwert und Bargeld nach Reserve. USD wird über EUR/USD aus der Marktübersicht umgerechnet. |
+| Risiko-Check | `lib/radar/desk.ts` | `trader-risk` | PASS oder BLOCK mit Begründung je Regel: Stop-Seite, Sperrliste, Short erlaubt, Stückzahl, max. Verlust, Orderwert, Positionsanteil, Chance/Risiko. Gesperrt wird außerdem bei Earnings im Haltezeitraum oder wenn die Time Machine deutlich Richtung Stop zeigt (beides abschaltbar). Hinweise zu Regel-Bilanz, Datenabdeckung und Liquidität. |
+| Congress Trades | `lib/radar/congress.ts`, `/api/radar/congress` | `trader-pelosi` | Index `<JAHR>FD.zip` des House Clerk (ohne Zusatzbibliothek entpackt, 1 h Cache), nur PTRs, Beobachtungsliste im Browser |
+
+Die Day-Trader-Skills arbeiten mit 5-Minuten-Kerzen innerhalb eines Handelstags. Das Radar bewertet Tageskerzen mit einem Horizont von bis zu 20 Handelstagen. Deshalb nutzt die Time Machine hier Tageskerzen. Konto- und Risikoregeln werden nur im Browser gespeichert.
 
 ## AI Early Signal Engine (`lib/radar/engine.ts`)
 
